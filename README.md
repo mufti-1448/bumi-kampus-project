@@ -1,14 +1,14 @@
 # Bumi Kampus
 
-Bumi Kampus adalah platform digital untuk mengajak mahasiswa membangun kebiasaan kecil yang menghasilkan dampak lingkungan secara kolektif di kampus.
+Bumi Kampus adalah platform digital yang mengajak mahasiswa membangun kebiasaan kecil untuk menghasilkan dampak lingkungan secara kolektif di kampus.
 
-> Small Actions. Collective Impact.
+> **Small Actions. Collective Impact.**
 
 ## Tentang Proyek
 
-Website ini dirancang sebagai landing page interaktif untuk memperkenalkan gerakan Bumi Kampus, program keberlanjutan, dampak terukur, dokumentasi aktivitas, komunitas, dan ajakan bergabung.
+Website ini dirancang sebagai landing page interaktif untuk memperkenalkan gerakan Bumi Kampus, program keberlanjutan, dampak yang terukur, dokumentasi aktivitas, komunitas, serta ajakan bergabung.
 
-## Fitur
+## Rencana Fitur
 
 - Navigasi responsif dengan anchor section
 - Hero section dan call to action
@@ -16,7 +16,7 @@ Website ini dirancang sebagai landing page interaktif untuk memperkenalkan gerak
 - Kalkulator dampak pribadi
 - Filter program dan event
 - Statistik dampak kampus
-- Dokumentasi aktivitas serta peta hotspot kampus
+- Dokumentasi aktivitas dan peta hotspot kampus
 - Form pendaftaran komunitas
 
 ## Teknologi
@@ -24,17 +24,25 @@ Website ini dirancang sebagai landing page interaktif untuk memperkenalkan gerak
 - React
 - Vite
 - Tailwind CSS
-- Lucide React
 
 ## Menjalankan Project
+
+Pastikan Node.js sudah terpasang, lalu jalankan:
 
 ```bash
 npm install
 npm run dev
 ```
+
+Website akan berjalan secara lokal pada alamat yang ditampilkan oleh Vite, biasanya:
+
+```text
+http://localhost:5173
+```
+
 ## Panduan Kolaborasi Git
 
-Gunakan GitHub untuk menyimpan progress dan bekerja bersama tanpa saling menimpa file.
+Gunakan GitHub untuk menyimpan progress dan bekerja bersama tanpa saling menimpa perubahan teman.
 
 ### Clone Project
 
@@ -45,9 +53,11 @@ git clone https://github.com/mufti-1448/bumi-kampus-project.git
 cd bumi-kampus-project
 npm install
 npm run dev
+```
+
 ### Sebelum Mulai Mengubah Kode
 
-Selalu ambil perubahan terbaru terlebih dahulu:
+Selalu ambil perubahan terbaru dari branch utama:
 
 ```bash
 git pull origin main
@@ -55,7 +65,7 @@ git pull origin main
 
 ### Buat Branch Sendiri
 
-Jangan langsung mengubah branch `main`. Buat branch sesuai tugas, misalnya:
+Jangan langsung mengubah branch `main`. Buat branch sesuai tugas yang sedang dikerjakan:
 
 ```bash
 git checkout -b feature/navbar
@@ -73,7 +83,7 @@ fix/mobile-layout
 
 ### Menyimpan Perubahan
 
-Setelah menyelesaikan satu bagian kecil:
+Setelah menyelesaikan satu bagian kecil dan sudah mengeceknya di localhost:
 
 ```bash
 git add .
@@ -81,7 +91,7 @@ git commit -m "feat: add responsive navbar"
 git push -u origin feature/navbar
 ```
 
-Gunakan pesan commit yang singkat dan menjelaskan perubahan, misalnya:
+Gunakan pesan commit yang singkat dan jelas, misalnya:
 
 ```text
 feat: add impact calculator
@@ -92,7 +102,7 @@ style: refine hero spacing
 
 ### Menggabungkan Perubahan
 
-Setelah branch sudah rapi dan website berjalan baik, buat Pull Request di GitHub dari branch fitur ke `main`. Jangan menggabungkan perubahan jika masih ada error.
+Setelah branch sudah rapi dan website berjalan tanpa error, buat Pull Request di GitHub dari branch fitur ke `main`. Jangan menggabungkan perubahan yang belum diuji.
 
 ### File yang Tidak Boleh Di-push
 
@@ -112,7 +122,7 @@ File-file tersebut sudah diatur melalui `.gitignore`.
 ```text
 git pull origin main
         ↓
-buat branch tugas
+buat branch sesuai tugas
         ↓
 kerjakan satu section
         ↓
@@ -124,3 +134,7 @@ git push
         ↓
 buat Pull Request ke main
 ```
+
+## Status
+
+Proyek masih dalam tahap pengembangan dan akan terus disempurnakan.
