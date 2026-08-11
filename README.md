@@ -31,8 +31,7 @@ Website ini dirancang sebagai landing page interaktif untuk memperkenalkan gerak
 ```bash
 npm install
 npm run dev
-
-
+```
 ## Panduan Kolaborasi Git
 
 Gunakan GitHub untuk menyimpan progress dan bekerja bersama tanpa saling menimpa file.
@@ -46,8 +45,6 @@ git clone https://github.com/mufti-1448/bumi-kampus-project.git
 cd bumi-kampus-project
 npm install
 npm run dev
-```
-
 ### Sebelum Mulai Mengubah Kode
 
 Selalu ambil perubahan terbaru terlebih dahulu:
