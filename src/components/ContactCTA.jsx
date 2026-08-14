@@ -61,7 +61,7 @@ export default function ContactCTA() {
           className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-6"
           data-aos="fade-down"
         >
-          08 — Bergabung
+          Bergabung
         </p>
 
         <h2

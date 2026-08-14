@@ -28,7 +28,7 @@ export default function CommunityEvents() {
       <div className="max-w-7xl mx-auto">
         <div data-aos="fade-up">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
-            07 — Komunitas
+            Komunitas
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold mb-10">
             <span className="text-text-primary">Komunitas & </span>
@@ -37,23 +37,29 @@ export default function CommunityEvents() {
         </div>
 
         {/* Testimoni besar dengan foto */}
-        <div className="rounded-3xl bg-white/[0.03] border border-white/10 overflow-hidden grid sm:grid-cols-2 mb-12" data-aos="fade-up" data-aos-delay="200">
+        <div
+          className="rounded-3xl bg-white/[0.03] border border-white/10 overflow-hidden grid sm:grid-cols-2 mb-12"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="p-6 sm:p-10 flex flex-col justify-center">
             <span className="text-4xl text-accent-glow/40 font-serif leading-none mb-2">
               &ldquo;
             </span>
             <p className="text-base sm:text-lg text-text-primary leading-relaxed mb-6">
-              Awalnya aku pikir gerakan kayak gini cuma formalitas kampus.
-              Tapi setelah ikut Campus Clean pertama, aku sadar dampaknya
-              beneran nyata — dan yang lebih penting, aku ngerasa bagian
-              dari sesuatu yang berarti.
+              Awalnya aku pikir gerakan kayak gini cuma formalitas kampus. Tapi
+              setelah ikut Campus Clean pertama, aku sadar dampaknya beneran
+              nyata — dan yang lebih penting, aku ngerasa bagian dari sesuatu
+              yang berarti.
             </p>
             <div className="flex items-center gap-3">
               <span className="w-10 h-10 rounded-full bg-accent-primary/20 flex items-center justify-center font-semibold text-accent-glow">
                 R
               </span>
               <div>
-                <p className="text-sm font-semibold text-text-primary">Rizky Aditya</p>
+                <p className="text-sm font-semibold text-text-primary">
+                  Rizky Aditya
+                </p>
                 <p className="text-xs text-text-secondary">
                   Teknik Sipil 2023 · Koordinator Campus Clean
                 </p>
@@ -71,15 +77,25 @@ export default function CommunityEvents() {
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
-                <ImageIcon size={32} strokeWidth={1.2} className="text-accent-primary/40" />
+                <ImageIcon
+                  size={32}
+                  strokeWidth={1.2}
+                  className="text-accent-primary/40"
+                />
               </div>
             )}
           </div>
         </div>
 
         {/* Event mendatang */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6" data-aos="fade-up" data-aos-delay="300">
-          <h3 className="text-xl font-bold text-text-primary">Event Mendatang</h3>
+        <div
+          className="flex flex-wrap items-center justify-between gap-4 mb-6"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <h3 className="text-xl font-bold text-text-primary">
+            Event Mendatang
+          </h3>
           <div className="flex flex-wrap gap-2">
             {eventFilters.map((filter) => (
               <button
@@ -103,23 +119,32 @@ export default function CommunityEvents() {
             <article
               key={event.id}
               className="rounded-2xl bg-white/[0.03] border border-white/10 p-5"
-              data-aos="fade-up" data-aos-delay={index * 100 + 400}
+              data-aos="fade-up"
+              data-aos-delay={index * 100 + 400}
             >
               <div className="flex items-center gap-2 mb-3">
-                <span className={`w-1.5 h-1.5 rounded-full ${categoryColor[event.kategori] || "bg-accent-primary"}`} />
+                <span
+                  className={`w-1.5 h-1.5 rounded-full ${categoryColor[event.kategori] || "bg-accent-primary"}`}
+                />
                 <span className="text-[10px] font-semibold tracking-widest text-text-secondary uppercase">
                   {event.kategori}
                 </span>
               </div>
               <h4 className="font-bold text-text-primary mb-2">{event.nama}</h4>
-              <p className="text-xs text-text-secondary mb-1">{event.tanggal}</p>
+              <p className="text-xs text-text-secondary mb-1">
+                {event.tanggal}
+              </p>
               <p className="text-xs text-text-secondary mb-4">{event.lokasi}</p>
 
               <div className="flex items-center justify-between text-xs text-text-secondary">
                 <span className="flex items-center gap-1">
                   <Users size={12} strokeWidth={1.5} /> {event.peserta} peserta
                 </span>
-                <ArrowRight size={14} strokeWidth={1.5} className="text-accent-glow" />
+                <ArrowRight
+                  size={14}
+                  strokeWidth={1.5}
+                  className="text-accent-glow"
+                />
               </div>
             </article>
           ))}
