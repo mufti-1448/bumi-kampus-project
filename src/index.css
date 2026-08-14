@@ -8,6 +8,11 @@
   body {
     @apply bg-bg-base text-text-primary font-inter antialiased;
   }
+
+  /* Global Focus States untuk Aksesibilitas (Poin 2.7) */
+  a, button, input, textarea, select, [tabindex]:not([tabindex="-1"]) {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-accent-glow/60 focus-visible:rounded-sm transition-shadow;
+  }
 }
 
 @layer components {
