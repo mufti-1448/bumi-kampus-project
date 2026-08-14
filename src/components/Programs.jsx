@@ -63,7 +63,7 @@ export default function Programs() {
             <article
               key={program.id}
               className={`relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 group min-h-[280px] ${
-                gridPosition[program.id] || ""
+                gridPosition[index + 1] || ""
               }`}
               data-aos="zoom-in" data-aos-delay={index * 100 + 200}
             >
