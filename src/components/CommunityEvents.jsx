@@ -28,7 +28,7 @@ export default function CommunityEvents() {
       <div className="max-w-7xl mx-auto">
         <div data-aos="fade-up">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
-            07 — Komunitas
+            Komunitas
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-text-primary mb-10">
             <span className="text-text-primary">Komunitas & </span>

@@ -13,7 +13,7 @@ export default function AboutProblem() {
         {/* Kiri: heading + deskripsi */}
         <div data-aos="fade-right">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
-            01 — Tentang
+            Tentang
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold leading-tight text-text-primary max-w-lg">
             <span className="text-text-primary">Rasanya Kayak</span>
