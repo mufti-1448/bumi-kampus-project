@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 // Hook untuk deteksi elemen masuk viewport (dipakai untuk trigger animasi scroll)
-export default function useIntersectionObserver(options = { threshold: 0.2 }) {
+export default function useIntersectionObserver({ threshold = 0.2, root = null, rootMargin = "0px" } = {}) {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -14,11 +14,11 @@ export default function useIntersectionObserver(options = { threshold: 0.2 }) {
         setIsVisible(true);
         observer.disconnect(); // trigger sekali saja, sesuai kebutuhan animasi fade-in
       }
-    }, options);
+    }, { threshold, root, rootMargin });
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [options]);
+  }, [threshold, root, rootMargin]);
 
   return [ref, isVisible];
 }
