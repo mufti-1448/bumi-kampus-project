@@ -15,7 +15,7 @@ export default function AboutProblem() {
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
             Tentang
           </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold leading-tight text-text-primary max-w-lg">
             <span className="text-text-primary">Rasanya Kayak</span>
             <br />
             <span className="text-accent-primary">Usaha Sendirian?</span>
@@ -35,7 +35,11 @@ export default function AboutProblem() {
         {/* Kanan: 2 card bertumpuk */}
         <div className="space-y-4">
           {/* Card 1: Aksi Sendirian */}
-          <div className="glass-panel p-6" data-aos="fade-left" data-aos-delay="200">
+          <div
+            className="glass-panel p-6"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-text-secondary">
                 1
