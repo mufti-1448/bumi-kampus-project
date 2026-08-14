@@ -30,14 +30,18 @@ export default function CommunityEvents() {
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
             07 — Komunitas
           </p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold mb-10">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-text-primary mb-10">
             <span className="text-text-primary">Komunitas & </span>
             <span className="text-accent-primary">Event</span>
           </h2>
         </div>
 
         {/* Testimoni besar dengan foto */}
-        <div className="glass-panel overflow-hidden grid sm:grid-cols-2 mb-12" data-aos="fade-up" data-aos-delay="200">
+        <div
+          className="glass-panel overflow-hidden grid sm:grid-cols-2 mb-12"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="p-6 sm:p-10 flex flex-col justify-center">
             <span className="text-4xl text-accent-primary/40 font-serif leading-none mb-2">
               &ldquo;
@@ -103,7 +107,8 @@ export default function CommunityEvents() {
             <article
               key={event.id}
               className="glass-panel !rounded-2xl p-5"
-              data-aos="fade-up" data-aos-delay={index * 100 + 400}
+              data-aos="fade-up"
+              data-aos-delay={index * 100 + 400}
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className={`w-1.5 h-1.5 rounded-full ${categoryColor[event.kategori] || "bg-accent-primary"}`} />
