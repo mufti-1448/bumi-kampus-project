@@ -9,7 +9,7 @@ import eventsData from "../data/eventsData";
 
 const eventFilters = ["Semua", "Workshop", "Volunteer", "Campaign"];
 const categoryColor = {
-  Volunteer: "bg-accent-glow",
+  Volunteer: "bg-accent-primary",
   Workshop: "bg-accent-cyan",
   Campaign: "bg-accent-primary",
 };
@@ -32,14 +32,14 @@ export default function CommunityEvents() {
           </p>
           <h2 className="text-4xl sm:text-5xl font-extrabold mb-10">
             <span className="text-text-primary">Komunitas & </span>
-            <span className="text-accent-glow">Event</span>
+            <span className="text-accent-primary">Event</span>
           </h2>
         </div>
 
         {/* Testimoni besar dengan foto */}
         <div className="glass-panel overflow-hidden grid sm:grid-cols-2 mb-12" data-aos="fade-up" data-aos-delay="200">
           <div className="p-6 sm:p-10 flex flex-col justify-center">
-            <span className="text-4xl text-accent-glow/40 font-serif leading-none mb-2">
+            <span className="text-4xl text-accent-primary/40 font-serif leading-none mb-2">
               &ldquo;
             </span>
             <p className="text-base sm:text-lg text-text-primary leading-relaxed mb-6">
@@ -49,7 +49,7 @@ export default function CommunityEvents() {
               dari sesuatu yang berarti.
             </p>
             <div className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-full bg-accent-primary/20 flex items-center justify-center font-semibold text-accent-glow">
+              <span className="w-10 h-10 rounded-full bg-accent-primary/20 flex items-center justify-center font-semibold text-accent-primary">
                 R
               </span>
               <div>
@@ -88,7 +88,7 @@ export default function CommunityEvents() {
                 aria-pressed={activeFilter === filter}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                   activeFilter === filter
-                    ? "bg-accent-glow text-bg-base"
+                    ? "bg-accent-primary text-bg-base"
                     : "bg-white/5 text-text-secondary hover:bg-white/10 border border-white/10"
                 }`}
               >
@@ -119,7 +119,7 @@ export default function CommunityEvents() {
                 <span className="flex items-center gap-1">
                   <Users size={12} strokeWidth={1.5} /> {event.peserta} peserta
                 </span>
-                <ArrowRight size={14} strokeWidth={1.5} className="text-accent-glow" />
+                <ArrowRight size={14} strokeWidth={1.5} className="text-accent-primary" />
               </div>
             </article>
           ))}

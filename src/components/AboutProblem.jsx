@@ -61,21 +61,21 @@ export default function AboutProblem() {
           <div className="rounded-3xl bg-accent-primary/10 border border-accent-primary/30 p-6" data-aos="fade-left" data-aos-delay="400">
             <div className="flex items-center gap-3 mb-4">
               <span className="w-8 h-8 rounded-full bg-accent-primary/20 flex items-center justify-center">
-                <Users size={16} strokeWidth={1.5} className="text-accent-glow" />
+                <Users size={16} strokeWidth={1.5} className="text-accent-primary" />
               </span>
               <div>
-                <p className="text-[10px] font-semibold tracking-widest text-accent-glow uppercase">
+                <p className="text-[10px] font-semibold tracking-widest text-accent-primary uppercase">
                   Dampak Kolektif
                 </p>
                 <p className="text-sm font-bold text-text-primary">Kekuatan Bersama</p>
               </div>
             </div>
             <div className="h-1.5 rounded-full bg-white/10 overflow-hidden mb-4">
-              <div className="h-full w-full bg-accent-glow rounded-full" />
+              <div className="h-full w-full bg-accent-primary rounded-full" />
             </div>
             <p className="text-sm text-text-secondary">
               5.000 mahasiswa. 2.500 kg sampah berkurang.{" "}
-              <span className="font-semibold text-accent-glow">Terasa nyata.</span>
+              <span className="font-semibold text-accent-primary">Terasa nyata.</span>
             </p>
           </div>
         </div>

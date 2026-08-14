@@ -22,7 +22,7 @@ function Metric({ metric, isVisible }) {
       <p className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-none">
         {count.toLocaleString("id-ID")}
         {metric.suffix && (
-          <span className="text-lg sm:text-xl text-accent-glow font-sans ml-1">
+          <span className="text-lg sm:text-xl text-accent-primary font-sans ml-1">
             {metric.suffix}
           </span>
         )}

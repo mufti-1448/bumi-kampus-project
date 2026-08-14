@@ -29,11 +29,11 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 mt-12 lg:mt-0">
         <div className="flex-1 w-full">
           <div 
-            className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-glow/30 bg-accent-glow/10 shadow-sm"
+            className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-glow/30 bg-accent-primary/10 shadow-sm"
             data-aos="fade-down"
           >
-            <span className="w-2 h-2 rounded-full bg-accent-glow animate-pulse"></span>
-            <span className="text-xs font-bold tracking-widest text-accent-glow uppercase select-none">
+            <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse"></span>
+            <span className="text-xs font-bold tracking-widest text-accent-primary uppercase select-none">
               Gerakan Mahasiswa untuk Kampus
             </span>
           </div>
@@ -50,7 +50,7 @@ export default function Hero() {
               Actions.
             </span>
             <span className="block text-text-primary">Collective</span>
-            <span className="block text-accent-glow">Impact.</span>
+            <span className="block text-accent-primary">Impact.</span>
           </h1>
 
           <div className="mt-8 max-w-xl" data-aos="fade-up" data-aos-delay="300">
