@@ -102,7 +102,7 @@ export default function CommunityEvents() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div key={activeFilter} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in">
           {filteredEvents.map((event, index) => (
             <article
               key={event.id}
