@@ -106,7 +106,7 @@ export default function CommunityEvents() {
           {filteredEvents.map((event, index) => (
             <article
               key={event.id}
-              className="glass-panel !rounded-2xl p-5"
+              className="glass-panel !rounded-2xl p-5 group cursor-pointer hover:-translate-y-1 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 100 + 400}
             >
@@ -116,7 +116,7 @@ export default function CommunityEvents() {
                   {event.kategori}
                 </span>
               </div>
-              <h4 className="font-bold text-text-primary mb-2">{event.nama}</h4>
+              <h4 className="font-bold text-text-primary mb-2 transition-colors duration-300 group-hover:text-accent-primary">{event.nama}</h4>
               <p className="text-xs text-text-secondary mb-1">{event.tanggal}</p>
               <p className="text-xs text-text-secondary mb-4">{event.lokasi}</p>
 
@@ -124,7 +124,7 @@ export default function CommunityEvents() {
                 <span className="flex items-center gap-1">
                   <Users size={12} strokeWidth={1.5} /> {event.peserta} peserta
                 </span>
-                <ArrowRight size={14} strokeWidth={1.5} className="text-accent-primary" />
+                <ArrowRight size={14} strokeWidth={1.5} className="text-accent-primary transform transition-transform duration-300 group-hover:translate-x-1" />
               </div>
             </article>
           ))}
