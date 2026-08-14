@@ -1,19 +1,51 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import AboutProblem from "./components/AboutProblem";
+import SectionDivider from "./components/SectionDivider";
+import StorytellingScale from "./components/StorytellingScale";
+import ImpactCalculator from "./components/ImpactCalculator";
+import Programs from "./components/Programs";
+import ImpactMetrics from "./components/ImpactMetrics";
+import DocumentationMap from "./components/DocumentationMap";
+import CommunityEvents from "./components/CommunityEvents";
+import ContactCTA from "./components/ContactCTA";
+import Footer from "./components/Footer";
+
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Durasi animasi 800ms
+      once: true, // Animasi hanya diputar sekali saat scroll
+      offset: 100, // Offset 100px dari bawah layar
+      easing: "ease-out-cubic", // Efek easing yang halus
+    });
+  }, []);
+
   return (
-    <main className="min-h-screen bg-[#0A0F0A] px-6 py-12 text-[#E8EDE4]">
-      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#B8E986]">
-        BUMI KAMPUS
-      </p>
-
-      <h1 className="mt-4 max-w-3xl text-5xl font-bold tracking-tight md:text-7xl">
-        Small actions. Collective impact.
-      </h1>
-
-      <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#9BA894]">
-        Fondasi prototype sudah siap. Selanjutnya kita membangun setiap section
-        satu per satu.
-      </p>
-    </main>
+    <div className="min-h-screen bg-bg-base overflow-hidden">
+      <Navbar />
+      <Hero />
+      <AboutProblem />
+      <SectionDivider />
+      <StorytellingScale />
+      <SectionDivider />
+      <ImpactCalculator />
+      <SectionDivider />
+      <Programs />
+      <SectionDivider />
+      <ImpactMetrics />
+      <SectionDivider />
+      <DocumentationMap />
+      <SectionDivider />
+      <CommunityEvents />
+      <SectionDivider />
+      <ContactCTA />
+      <Footer />
+    </div>
   );
 }
 

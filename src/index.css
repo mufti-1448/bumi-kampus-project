@@ -1,1 +1,84 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg-base text-text-primary font-inter antialiased;
+  }
+}
+
+@layer components {
+  /* Glass panel — signature component BUMI KAMPUS (Organic Premium Sustainability) */
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl;
+  }
+
+  .btn-pill {
+    @apply rounded-full font-medium transition-all duration-200 px-6 py-3 inline-flex items-center gap-2;
+  }
+
+  .btn-primary {
+    @apply btn-pill bg-accent-primary text-bg-base hover:bg-accent-glow;
+  }
+
+  .btn-secondary {
+    @apply btn-pill bg-white/5 text-text-primary border border-white/10 hover:bg-white/10;
+  }
+}
+
+/* Animasi calm/premium — durasi diperlambat sesuai design principle "premium & tenang" */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes dotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2.4s ease-in-out infinite;
+}
+
+.animate-dot-pulse {
+  animation: dotPulse 1.8s ease-in-out infinite;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
