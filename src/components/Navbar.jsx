@@ -14,6 +14,7 @@ const menuItems = [
   { label: "Program", href: "#program" },
   { label: "Dampak", href: "#dampak" },
   { label: "Komunitas", href: "#komunitas" },
+  { label: "Dokumentasi", href: "#dokumentasi" },
   { label: "Kontak", href: "#kontak" },
 ];
 
