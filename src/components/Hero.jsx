@@ -17,9 +17,9 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10 bg-bg-base">
         {!bgError && (
           <img
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2000&auto=format&fit=crop"
+            src="/images/hero-bg.jpg"
             alt="Mahasiswa berkumpul di lapangan kampus"
-            className="w-full h-full object-cover opacity-70"
+            className="img-duotone opacity-70"
             onError={() => setBgError(true)}
           />
         )}
@@ -78,9 +78,9 @@ export default function Hero() {
           >
             {!badgeError ? (
               <img
-                src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=800&auto=format&fit=crop"
+                src="/images/hero-badge.jpg"
                 alt="Kampus Universitas Nusantara"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="img-duotone transition-transform duration-700 group-hover:scale-105"
                 onError={() => setBadgeError(true)}
               />
             ) : (

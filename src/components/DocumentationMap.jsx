@@ -180,7 +180,7 @@ export default function DocumentationMap() {
         <img
           src={src}
           alt="Dokumentasi kegiatan BUMI KAMPUS"
-          className="w-full h-full object-cover"
+          className="img-duotone"
           onError={() => setError(keyName)}
         />
       ) : (
@@ -389,7 +389,7 @@ export default function DocumentationMap() {
                         <img
                           src={activeHotspot.image}
                           alt={activeHotspot.nama}
-                          className="w-full h-full object-cover"
+                          className="img-duotone"
                           onError={(e) => {
                             e.target.src =
                               "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=400&auto=format&fit=crop";

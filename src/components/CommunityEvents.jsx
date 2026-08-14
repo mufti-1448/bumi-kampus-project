@@ -64,7 +64,7 @@ export default function CommunityEvents() {
           <div className="min-h-[220px] bg-white/5 relative">
             {!imgError ? (
               <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=600&auto=format&fit=crop"
+                src="/images/community-testimoni.jpg"
                 alt="Mahasiswa berkumpul dalam kegiatan komunitas"
                 className="absolute inset-0 w-full h-full object-cover"
                 onError={() => setImgError(true)}
