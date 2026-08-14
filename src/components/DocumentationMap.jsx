@@ -17,8 +17,7 @@ const hotspotsData = [
     y: 50,
     deskripsi:
       "Fasilitas pengelolaan sampah terpadu dengan sistem pemilahan dan daur ulang sampah organik & anorganik.",
-    image:
-      "/sampah.jpg",
+    image: "/sampah.jpg",
   },
   {
     id: 2,
@@ -27,8 +26,7 @@ const hotspotsData = [
     y: 44,
     deskripsi:
       "Akses air minum gratis untuk mengurangi penggunaan botol plastik sekali pakai di lingkungan kampus.",
-    image:
-      "/refil-air.jpg",
+    image: "/refil-air.jpg",
   },
   {
     id: 3,
@@ -37,8 +35,7 @@ const hotspotsData = [
     y: 58,
     deskripsi:
       "Ruang terbuka hijau dengan pepohonan rindang untuk konservasi keanekaragaman hayati kampus.",
-    image:
-      "/area-hijau.jpg",
+    image: "/area-hijau.jpg",
   },
   {
     id: 4,
@@ -47,8 +44,7 @@ const hotspotsData = [
     y: 48,
     deskripsi:
       "Ruang kolaborasi mahasiswa untuk kegiatan lingkungan, diskusi, dan aksi sosial berbasis komunitas.",
-    image:
-      "/taman.jpg",
+    image: "/taman.jpg",
   },
   {
     id: 5,
@@ -57,8 +53,7 @@ const hotspotsData = [
     y: 43,
     deskripsi:
       "Posko gotong royong dengan perlengkapan kebersihan untuk aksi bersih-bersih kampus secara berkala.",
-    image:
-      "/area-bersih.jpg",
+    image: "/area-bersih.jpg",
   },
 ];
 
@@ -201,7 +196,7 @@ export default function DocumentationMap() {
         {/* Header */}
         <div data-aos="fade-up" className="mb-10">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
-            06 — Dokumentasi
+            Dokumentasi
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold">
             <span className="text-text-primary">Jejak Aksi </span>
