@@ -95,7 +95,7 @@ export default function ImpactCalculator() {
           </div>
 
           {/* Kanan: panel hasil */}
-          <div className="rounded-3xl bg-white/[0.03] border border-white/10 p-6 sm:p-8 flex flex-col" data-aos="fade-left" data-aos-delay="400">
+          <div className="glass-panel p-6 sm:p-8 flex flex-col" data-aos="fade-left" data-aos-delay="400">
             <p className="text-xs font-semibold tracking-widest text-text-secondary uppercase mb-4">
               Dampak Bulananmu
             </p>

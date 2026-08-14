@@ -37,7 +37,7 @@ export default function CommunityEvents() {
         </div>
 
         {/* Testimoni besar dengan foto */}
-        <div className="rounded-3xl bg-white/[0.03] border border-white/10 overflow-hidden grid sm:grid-cols-2 mb-12" data-aos="fade-up" data-aos-delay="200">
+        <div className="glass-panel overflow-hidden grid sm:grid-cols-2 mb-12" data-aos="fade-up" data-aos-delay="200">
           <div className="p-6 sm:p-10 flex flex-col justify-center">
             <span className="text-4xl text-accent-glow/40 font-serif leading-none mb-2">
               &ldquo;
@@ -102,7 +102,7 @@ export default function CommunityEvents() {
           {filteredEvents.map((event, index) => (
             <article
               key={event.id}
-              className="rounded-2xl bg-white/[0.03] border border-white/10 p-5"
+              className="glass-panel !rounded-2xl p-5"
               data-aos="fade-up" data-aos-delay={index * 100 + 400}
             >
               <div className="flex items-center gap-2 mb-3">

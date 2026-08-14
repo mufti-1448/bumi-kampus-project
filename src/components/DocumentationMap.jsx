@@ -241,7 +241,7 @@ export default function DocumentationMap() {
 
           {/* Kanan: Custom Map */}
           <div
-            className="rounded-2xl bg-white/[0.03] border border-white/10 p-4 relative flex flex-col"
+            className="glass-panel p-4 relative flex flex-col"
             data-aos="fade-left"
             data-aos-delay="400"
           >
