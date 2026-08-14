@@ -17,7 +17,7 @@ const icons = {
   tanam: Sprout,
 };
 
-const MAX_SKOR = calculatorData.reduce((sum, item) => sum + item.skor, 0) * 3; // skala "108" ilustratif
+const MAX_SKOR = calculatorData.reduce((sum, item) => sum + item.skor, 0) * 3;
 
 export default function ImpactCalculator() {
   const [selected, setSelected] = useState(
