@@ -48,7 +48,7 @@ export default function Programs() {
                 aria-pressed={activeFilter === filter}
                 className={`px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 ${
                   activeFilter === filter
-                    ? "bg-accent-glow text-bg-base"
+                    ? "bg-accent-primary text-bg-base"
                     : "bg-white/5 text-text-secondary hover:bg-white/10 border border-white/10"
                 }`}
               >
@@ -96,7 +96,7 @@ export default function Programs() {
                 <p className="text-sm text-text-secondary/90 leading-relaxed mb-3 max-w-xs">
                   {program.deskripsi}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-accent-glow">
+                <span className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary">
                   Pelajari lebih <ArrowRight size={14} strokeWidth={2} />
                 </span>
               </div>

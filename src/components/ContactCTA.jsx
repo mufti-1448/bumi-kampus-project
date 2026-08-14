@@ -69,7 +69,7 @@ export default function ContactCTA() {
           data-aos="fade-up"
         >
           <span className="block text-text-primary">Gabung</span>
-          <span className="block text-accent-glow">Gerakannya</span>
+          <span className="block text-accent-primary">Gerakannya</span>
           <span className="block text-text-primary">Sekarang</span>
         </h2>
 
@@ -85,7 +85,7 @@ export default function ContactCTA() {
         {/* Join the Movement */}
         {submitted ? (
           <div
-            className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/10 px-6 py-4 text-accent-glow"
+            className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/10 px-6 py-4 text-accent-primary"
             data-aos="zoom-in"
           >
             <CheckCircle2 size={22} strokeWidth={1.5} />
@@ -160,10 +160,10 @@ export default function ContactCTA() {
                       <Icon
                         size={17}
                         strokeWidth={1.5}
-                        className="text-accent-glow"
+                        className="text-accent-primary"
                       />
                     ) : (
-                      <span className="text-sm font-bold text-accent-glow">@</span>
+                      <span className="text-sm font-bold text-accent-primary">@</span>
                     )}
                   </div>
 

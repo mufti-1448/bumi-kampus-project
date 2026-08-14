@@ -205,7 +205,7 @@ export default function DocumentationMap() {
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold">
             <span className="text-text-primary">Jejak Aksi </span>
-            <span className="text-accent-glow">Kami</span>
+            <span className="text-accent-primary">Kami</span>
           </h2>
         </div>
 
@@ -333,8 +333,8 @@ export default function DocumentationMap() {
                         <div
                           className={`relative w-full h-full rounded-full border-2 transition-all duration-300 shadow-xl flex items-center justify-center ${
                             isActive
-                              ? "bg-accent-glow border-white scale-125 shadow-accent-glow/60"
-                              : "bg-accent-glow/95 border-white hover:bg-accent-glow hover:scale-110"
+                              ? "bg-accent-primary border-white scale-125 shadow-accent-glow/60"
+                              : "bg-accent-primary/95 border-white hover:bg-accent-primary hover:scale-110"
                           }`}
                         >
                           <MapPin
@@ -404,7 +404,7 @@ export default function DocumentationMap() {
                         </button>
                       </div>
                       <div className="p-2.5 pt-1">
-                        <p className="text-xs font-bold text-accent-glow tracking-wide">
+                        <p className="text-xs font-bold text-accent-primary tracking-wide">
                           {activeHotspot.nama}
                         </p>
                         <p className="text-[10px] text-text-secondary mt-0.5 leading-relaxed">
@@ -429,7 +429,7 @@ export default function DocumentationMap() {
                   }
                   className={`text-[8px] px-2 py-0.5 rounded-full border transition-colors ${
                     activeHotspot?.id === spot.id
-                      ? "bg-accent-glow text-bg-base border-accent-glow font-bold"
+                      ? "bg-accent-primary text-bg-base border-accent-glow font-bold"
                       : "text-text-secondary bg-white/5 border-white/10 hover:bg-white/10"
                   }`}
                 >

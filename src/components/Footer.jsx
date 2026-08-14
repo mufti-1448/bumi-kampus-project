@@ -40,16 +40,16 @@ export default function Footer() {
             © 2026 Bumi Kampus. Gerakan mahasiswa untuk kampus berkelanjutan.
           </p>
           <div className="flex items-center gap-5">
-            <a href="#" className="text-text-secondary hover:text-accent-glow transition-colors" aria-label="Bluesky">
+            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="Bluesky">
               <svg width="18" height="18"><use href="/icons.svg#bluesky-icon" /></svg>
             </a>
-            <a href="#" className="text-text-secondary hover:text-accent-glow transition-colors" aria-label="X (Twitter)">
+            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="X (Twitter)">
               <svg width="18" height="18"><use href="/icons.svg#x-icon" /></svg>
             </a>
-            <a href="#" className="text-text-secondary hover:text-accent-glow transition-colors" aria-label="Discord">
+            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="Discord">
               <svg width="18" height="18"><use href="/icons.svg#discord-icon" /></svg>
             </a>
-            <a href="#" className="text-text-secondary hover:text-accent-glow transition-colors" aria-label="GitHub">
+            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="GitHub">
               <svg width="18" height="18"><use href="/icons.svg#github-icon" /></svg>
             </a>
           </div>

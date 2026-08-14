@@ -83,7 +83,7 @@ export default function ImpactCalculator() {
                   <span
                     className={`w-6 h-6 rounded-full flex items-center justify-center border ${
                       active
-                        ? "bg-accent-glow border-accent-glow"
+                        ? "bg-accent-primary border-accent-glow"
                         : "border-white/20"
                     }`}
                   >
@@ -100,7 +100,7 @@ export default function ImpactCalculator() {
               Dampak Bulananmu
             </p>
 
-            <p className="font-serif text-5xl sm:text-6xl font-bold text-accent-glow leading-none">
+            <p className="font-serif text-5xl sm:text-6xl font-bold text-accent-primary leading-none">
               {(animatedKg / 10).toFixed(1)}
             </p>
             <p className="text-xs font-semibold tracking-widest text-text-secondary uppercase mt-2 mb-6">
@@ -137,7 +137,7 @@ export default function ImpactCalculator() {
             {totalSkor > 0 && (
               <div className="mt-6 rounded-2xl bg-accent-primary/10 border border-accent-primary/20 p-4 flex gap-3">
                 <span className="w-9 h-9 rounded-full bg-accent-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Sprout size={16} strokeWidth={1.5} className="text-accent-glow" />
+                  <Sprout size={16} strokeWidth={1.5} className="text-accent-primary" />
                 </span>
                 <p className="text-sm text-text-secondary">
                   <span className="font-semibold text-text-primary">
@@ -145,11 +145,11 @@ export default function ImpactCalculator() {
                   </span>
                   <br />
                   Dampak kolektifnya:{" "}
-                  <span className="font-semibold text-accent-glow">
+                  <span className="font-semibold text-accent-primary">
                     {kolektifKg.toLocaleString("id-ID")} kg
                   </span>{" "}
                   sampah berkurang tiap bulan — setara menanam{" "}
-                  <span className="font-semibold text-accent-glow">
+                  <span className="font-semibold text-accent-primary">
                     {kolektifPohon.toLocaleString("id-ID")} pohon
                   </span>{" "}
                   baru setiap tahun.
