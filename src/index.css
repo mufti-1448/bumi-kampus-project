@@ -21,6 +21,10 @@
     @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl;
   }
 
+  .img-duotone {
+    @apply w-full h-full object-cover mix-blend-luminosity grayscale opacity-80 transition-all duration-700 hover:grayscale-0 hover:opacity-100 hover:mix-blend-normal;
+  }
+
   .btn-pill {
     @apply rounded-full font-medium transition-all duration-200 px-6 py-3 inline-flex items-center gap-2;
   }

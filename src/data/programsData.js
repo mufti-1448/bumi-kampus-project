@@ -6,7 +6,7 @@ const programsData = [
     kategori: "Daur Ulang",
     deskripsi:
       "Sistem daur ulang terjadwal dengan bank sampah digital dan insentif poin untuk setiap kontribusimu.",
-    gambar: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=600&auto=format&fit=crop",
+    gambar: "/images/program-cycle.jpg",
     span: "row-span-2",
   },
   {
@@ -14,7 +14,7 @@ const programsData = [
     nama: "Campus Refill",
     kategori: "Komunitas",
     deskripsi: "Jaringan stasiun isi ulang air minum gratis di seluruh penjuru kampus.",
-    gambar: "https://images.unsplash.com/photo-1594921980860-b6f4e17cb9e4?q=80&w=600&auto=format&fit=crop",
+    gambar: "/images/program-refill.jpg",
     span: "",
   },
   {
@@ -22,7 +22,7 @@ const programsData = [
     nama: "Campus Green",
     kategori: "Area Hijau",
     deskripsi: "Pembangunan taman aktif, taman gantung, dan koridor vegetasi kampus yang hidup.",
-    gambar: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=600&auto=format&fit=crop",
+    gambar: "/images/program-green.jpg",
     span: "",
   },
   {
@@ -30,7 +30,7 @@ const programsData = [
     nama: "Campus Clean",
     kategori: "Komunitas",
     deskripsi: "Kampanye bersih-bersih kolektif dengan sistem reward untuk mahasiswa yang aktif bergerak.",
-    gambar: "https://images.unsplash.com/photo-1618477461853-c6cce96f131a?q=80&w=600&auto=format&fit=crop",
+    gambar: "/images/program-clean.jpg",
     span: "",
   },
 ];

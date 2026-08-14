@@ -71,7 +71,7 @@ export default function Programs() {
                 <img
                   src={program.gambar}
                   alt={program.nama}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 img-duotone group-hover:scale-105 transition-transform duration-500"
                   onError={() =>
                     setImgErrors((prev) => ({ ...prev, [program.id]: true }))
                   }
