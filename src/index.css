@@ -7,7 +7,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: -10px;
+    scroll-padding-top: 80px;
   }
 
   body {
@@ -15,7 +15,7 @@
   }
 
   section[id] {
-    scroll-margin-top: -10px;
+    scroll-margin-top: 80px;
   }
 
   /* Global Focus States untuk Aksesibilitas (Poin 2.7) */

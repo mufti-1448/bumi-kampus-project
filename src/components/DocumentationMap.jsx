@@ -6,7 +6,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Camera, MapPin, X, Plus, Minus, Move } from "lucide-react";
 
-const mapImage = "/campus-map.jpg";
+const mapImage = "/images/campus-map.jpg";
 
 // 📍 DATA HOTSPOT — Koordinat sudah benar!
 const hotspotsData = [
@@ -17,7 +17,7 @@ const hotspotsData = [
     y: 50,
     deskripsi:
       "Fasilitas pengelolaan sampah terpadu dengan sistem pemilahan dan daur ulang sampah organik & anorganik.",
-    image: "/sampah.jpg",
+    image: "/images/titik-daur-ulang.jpg",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const hotspotsData = [
     y: 44,
     deskripsi:
       "Akses air minum gratis untuk mengurangi penggunaan botol plastik sekali pakai di lingkungan kampus.",
-    image: "/refil-air.jpg",
+    image: "/images/program-refill.jpg",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const hotspotsData = [
     y: 58,
     deskripsi:
       "Ruang terbuka hijau dengan pepohonan rindang untuk konservasi keanekaragaman hayati kampus.",
-    image: "/area-hijau.jpg",
+    image: "/images/area-hijau.jpg",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const hotspotsData = [
     y: 48,
     deskripsi:
       "Ruang kolaborasi mahasiswa untuk kegiatan lingkungan, diskusi, dan aksi sosial berbasis komunitas.",
-    image: "/taman.jpg",
+    image: "/images/taman-komunitas.jpg",
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ const hotspotsData = [
     y: 43,
     deskripsi:
       "Posko gotong royong dengan perlengkapan kebersihan untuk aksi bersih-bersih kampus secara berkala.",
-    image: "/area-bersih.jpg",
+    image: "/images/area-bersih-bersih.jpg",
   },
 ];
 
@@ -65,8 +65,6 @@ export default function DocumentationMap() {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [imgErrors, setImgErrors] = useState({});
   const containerRef = useRef(null);
-  const mapRef = useRef(null);
-  const imageRef = useRef(null);
   const [imageDimensions, setImageDimensions] = useState({
     width: 0,
     height: 0,
@@ -219,24 +217,24 @@ export default function DocumentationMap() {
           <div className="space-y-3" data-aos="fade-right" data-aos-delay="200">
             <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <Photo
-                src="/sampah.jpg"
+                src="/images/titik-daur-ulang.jpg"
                 keyName="docs1"
                 className="aspect-[4/3]"
               />
               <Photo
-                src="/refil-air.jpg"
+                src="/images/program-refill.jpg"
                 keyName="docs2"
                 className="aspect-[4/3]"
               />
             </div>
             <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <Photo
-                src="/area-hijau.jpg"
+                src="/images/area-hijau.jpg"
                 keyName="docs3"
                 className="aspect-[4/3]"
               />
               <Photo
-                src="/taman.jpg"
+                src="/images/taman-komunitas.jpg"
                 keyName="docs4"
                 className="aspect-[4/3]"
               />
@@ -276,7 +274,6 @@ export default function DocumentationMap() {
               onTouchStart={handleTouchStart}
             >
               <div
-                ref={mapRef}
                 className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
               >
                 <div
@@ -287,7 +284,6 @@ export default function DocumentationMap() {
                   }}
                 >
                   <img
-                    ref={imageRef}
                     src={mapImage}
                     alt="Peta Kampus Universitas Nusantara"
                     className="max-w-none"
