@@ -30,19 +30,12 @@ function App() {
       <Navbar />
       <Hero />
       <AboutProblem />
-      <SectionDivider />
       <StorytellingScale />
-      <SectionDivider />
       <ImpactCalculator />
-      <SectionDivider />
       <Programs />
-      <SectionDivider />
       <ImpactMetrics />
-      <SectionDivider />
       <DocumentationMap />
-      <SectionDivider />
       <CommunityEvents />
-      <SectionDivider />
       <ContactCTA />
       <Footer />
     </div>

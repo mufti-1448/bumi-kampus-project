@@ -22,40 +22,51 @@ export default function StorytellingScale() {
           Dari Satu, Jadi Ribuan
         </h2>
 
-        <div className="flex items-center justify-center">
-          {stages.map((stage, i) => (
-            <div
-              key={stage.label}
-              className="flex items-center flex-1 last:flex-none"
-            >
+        <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
+          {stages.map((stage, i) => {
+            const sizeClass =
+              stage.number === "1"
+                ? "w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 text-sm sm:text-base md:text-lg"
+                : stage.number === "10"
+                  ? "w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 text-base sm:text-lg md:text-xl"
+                  : stage.number === "100"
+                    ? "w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 text-base sm:text-xl md:text-2xl"
+                    : "w-18 h-18 sm:w-28 sm:h-28 md:w-32 md:h-32 text-base sm:text-xl md:text-2xl";
+
+            return (
               <div
-                className="flex flex-col items-center gap-3 transition-all duration-700"
-                data-aos="zoom-in"
-                data-aos-delay={i * 150 + 200}
+                key={stage.label}
+                className="flex items-center flex-1 min-w-0 last:flex-none"
               >
                 <div
-                  className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-bg-surface border flex items-center justify-center font-bold text-lg sm:text-xl text-text-primary ${
-                    stage.highlight
-                      ? "border-2 border-accent-glow shadow-[0_0_24px_rgba(184,233,134,0.4)]"
-                      : "border-white/10"
-                  }`}
+                  className="flex flex-col items-center gap-2 sm:gap-3 transition-all duration-700 min-w-0"
+                  data-aos="zoom-in"
+                  data-aos-delay={i * 150 + 200}
                 >
-                  {stage.number}
+                  <div
+                    className={`rounded-full bg-bg-surface border flex items-center justify-center font-bold text-text-primary ${sizeClass} ${
+                      stage.highlight
+                        ? "border-2 border-accent-glow shadow-[0_0_24px_rgba(184,233,134,0.4)]"
+                        : "border-white/10"
+                    }`}
+                  >
+                    {stage.number}
+                  </div>
+                  <p className="text-[10px] sm:text-xs md:text-sm text-text-secondary whitespace-nowrap">
+                    {stage.label}
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm text-text-secondary whitespace-nowrap">
-                  {stage.label}
-                </p>
-              </div>
 
-              {i < stages.length - 1 && (
-                <div
-                  className="flex-1 h-px bg-white/10 mx-2 sm:mx-4 mb-8"
-                  data-aos="fade-in"
-                  data-aos-delay={i * 150 + 350}
-                />
-              )}
-            </div>
-          ))}
+                {i < stages.length - 1 && (
+                  <div
+                    className="flex-1 h-px bg-white/10 mx-1 sm:mx-2 md:mx-3 mb-6 sm:mb-8 min-w-[10px]"
+                    data-aos="fade-in"
+                    data-aos-delay={i * 150 + 350}
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
