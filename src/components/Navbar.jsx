@@ -27,7 +27,7 @@ export default function Navbar() {
       const target = document.querySelector(href);
 
       if (target) {
-        const offset = -20;
+        const offset = 10;
         const top =
           target.getBoundingClientRect().top + window.scrollY - offset;
 

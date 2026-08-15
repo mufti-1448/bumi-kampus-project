@@ -88,7 +88,7 @@ export default function ImpactMetrics() {
       <div className="absolute inset-0 z-0 bg-bg-surface">
         {!bgError && (
           <img
-            src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200&auto=format&fit=crop"
+            src="/images/impact-metrics-bg.jpg"
             alt="Hutan kampus dari atas"
             className="absolute inset-0 w-full h-full object-cover opacity-60"
             onError={() => setBgError(true)}

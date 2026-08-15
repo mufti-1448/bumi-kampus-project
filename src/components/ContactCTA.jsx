@@ -4,7 +4,7 @@
 // CTA join movement + informasi kontak organisasi
 
 import { useState } from "react";
-import { CheckCircle2, Mail, MapPin } from "lucide-react";
+import { CheckCircle2, Mail, MapPin, AtSign } from "lucide-react";
 
 const contactInfo = [
   {
@@ -23,7 +23,7 @@ const contactInfo = [
     label: "Instagram",
     value: "@bumikampus",
     href: "#",
-    icon: null,
+    icon: AtSign,
   },
 ];
 
@@ -31,6 +31,7 @@ export default function ContactCTA() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [bgError, setBgError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,11 +52,16 @@ export default function ContactCTA() {
       className="relative py-28 px-4 sm:px-6 lg:px-8 text-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <img
-          src="/images/bg-kontak.jpg"
-          alt="Pemandangan hutan"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
+        {!bgError && (
+          <img
+            src="/images/bg-kontak.jpg"
+            alt="Pemandangan hutan"
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+            onError={() => setBgError(true)}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
 
         <div className="absolute inset-0 bg-black/50" />
 

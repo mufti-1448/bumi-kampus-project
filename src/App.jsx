@@ -5,7 +5,6 @@ import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import AboutProblem from "./components/AboutProblem";
-import SectionDivider from "./components/SectionDivider";
 import StorytellingScale from "./components/StorytellingScale";
 import ImpactCalculator from "./components/ImpactCalculator";
 import Programs from "./components/Programs";

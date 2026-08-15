@@ -10,7 +10,7 @@ import eventsData from "../data/eventsData";
 const eventFilters = ["Semua", "Workshop", "Volunteer", "Campaign"];
 const categoryColor = {
   Volunteer: "bg-accent-primary",
-  Workshop: "bg-accent-cyan",
+  Workshop: "bg-accent-primary",
   Campaign: "bg-accent-primary",
 };
 
@@ -46,16 +46,15 @@ export default function CommunityEvents() {
           <div className="p-6 sm:p-8 md:p-10 relative bg-bg-base">
             {/* Tanda Kutip Besar di Background */}
             <div
-              className="absolute top-2 left-6 md:left-10 text-[6rem] sm:text-[9rem] leading-none font-black select-none pointer-events-none"
+              className="absolute top-2 left-6 md:left-10 text-[6rem] sm:text-[9rem] leading-none font-black select-none pointer-events-none text-accent-primary/5"
               aria-hidden="true"
-              style={{ color: "rgb(122, 155, 92)", opacity: "0.07" }}
             >
               &ldquo;
             </div>
 
             {/* Konten Teks */}
             <div className="relative z-10 pt-6 md:pt-8">
-              <p className="text-base sm:text-lg md:text-2xl lg:text-[1.45rem] font-medium text-[#E8EDE4] leading-snug mb-6 md:mb-8">
+              <p className="text-base sm:text-lg md:text-2xl lg:text-[1.45rem] font-medium text-text-primary leading-snug mb-6 md:mb-8">
                 "Awalnya aku pikir gerakan kayak gini cuma formalitas kampus.
                 Tapi setelah ikut Campus Clean pertama, aku sadar dampaknya
                 beneran nyata — dan yang lebih penting, aku ngerasa bagian dari
@@ -64,14 +63,14 @@ export default function CommunityEvents() {
 
               {/* Profil */}
               <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-full bg-[#7A9B5C]/25 flex items-center justify-center text-[#B8E986] font-bold text-lg flex-shrink-0">
+                <div className="w-11 h-11 rounded-full bg-accent-primary/25 flex items-center justify-center text-accent-glow font-bold text-lg flex-shrink-0">
                   R
                 </div>
                 <div>
-                  <p className="text-[#E8EDE4] font-semibold text-sm">
+                  <p className="text-text-primary font-semibold text-sm">
                     Rizky Aditya
                   </p>
-                  <p className="text-[#9BA894] text-xs mt-0.5">
+                  <p className="text-text-secondary text-xs mt-0.5">
                     Teknik Sipil 2023 · Koordinator Campus Clean
                   </p>
                 </div>
@@ -80,12 +79,12 @@ export default function CommunityEvents() {
           </div>
 
           {/* KANAN: FOTO + GRADASI */}
-          <div className="relative bg-[#111811] overflow-hidden">
+          <div className="relative bg-bg-surface overflow-hidden">
             {!imgError ? (
               <>
                 {/* Foto */}
                 <img
-                  src="/images/bagus.jpg"
+                  src="/images/person.jpg"
                   alt="Mahasiswa berkumpul dalam kegiatan komunitas"
                   className="w-full h-full object-cover object-center opacity-75"
                   style={{ objectPosition: "center 30%" }}
