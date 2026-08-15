@@ -6,53 +6,91 @@ import { Leaf } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="w-8 h-8 rounded-full bg-accent-primary/20 flex items-center justify-center">
-                <Leaf size={16} strokeWidth={1.5} className="text-accent-primary" />
+    <footer className="border-t border-white/[0.06] py-10 md:py-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+        {/* ========================================== */}
+        {/* TABLET & DESKTOP: 2 KOLOM (Brand kiri + Menu kanan RATA KANAN) */}
+        {/* HP: STACK RATA KIRI */}
+        {/* ========================================== */}
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 sm:gap-8 mb-6">
+          {/* Brand - KIRI (tetap kiri di semua device) */}
+          <div className="flex-shrink-0">
+            <div className="flex items-center gap-2.5 mb-1">
+              <div className="w-7 h-7 rounded-full bg-[#7A9B5C] flex items-center justify-center">
+                <Leaf size={14} strokeWidth={2} className="text-[#0A0F0A]" />
+              </div>
+              <span className="font-black tracking-[0.12em] uppercase text-sm text-text-primary">
+                Bumi Kampus
               </span>
-              <span className="font-bold text-text-primary">BUMI KAMPUS</span>
             </div>
-            <p className="text-sm text-text-secondary pl-10">Small Actions. Collective Impact.</p>
+            <p className="text-[#9BA894] text-xs">
+              Small Actions. Collective Impact.
+            </p>
           </div>
 
-          <nav className="flex flex-wrap gap-6 text-sm text-text-secondary">
-            <a href="#tentang" className="hover:text-text-primary">Tentang</a>
-            <a href="#program" className="hover:text-text-primary">Program</a>
-            <a href="#dampak" className="hover:text-text-primary">Dampak</a>
-            <a href="#komunitas" className="hover:text-text-primary">Komunitas</a>
-            <a href="#kontak" className="hover:text-text-primary">Kontak</a>
-          </nav>
+          {/* Kanan: Menu + Legal */}
+          {/* HP: rata kiri (items-start) */}
+          {/* Tablet & Desktop: rata kanan (items-end) */}
+          <div className="flex flex-col items-start sm:items-end gap-3 w-full sm:w-auto">
+            {/* Main Navigation */}
+            <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 justify-start sm:justify-end w-full">
+              <a
+                href="#tentang"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Tentang
+              </a>
+              <a
+                href="#program"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Program
+              </a>
+              <a
+                href="#dampak"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Dampak
+              </a>
+              <a
+                href="#komunitas"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Komunitas
+              </a>
+              <a
+                href="#kontak"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Kontak
+              </a>
+            </nav>
 
-          <div className="flex flex-wrap gap-6 text-sm text-text-secondary">
-            <a href="#" className="hover:text-text-primary">Kebijakan Privasi</a>
-            <a href="#" className="hover:text-text-primary">Syarat & Ketentuan</a>
+            {/* Legal Links */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 justify-start sm:justify-end w-full">
+              <a
+                href="#"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Kebijakan Privasi
+              </a>
+              <a
+                href="#"
+                className="text-[#9BA894] text-xs hover:text-[#E8EDE4] transition-colors duration-200 whitespace-nowrap"
+              >
+                Syarat & Ketentuan
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="h-px bg-white/10 my-8" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-text-secondary/70 text-center sm:text-left">
+        {/* ========================================== */}
+        {/* Divider & Copyright */}
+        {/* ========================================== */}
+        <div className="border-t border-white/[0.06] pt-6">
+          <p className="text-[#9BA894] text-xs text-left">
             © 2026 Bumi Kampus. Gerakan mahasiswa untuk kampus berkelanjutan.
           </p>
-          <div className="flex items-center gap-5">
-            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="Bluesky">
-              <svg width="18" height="18"><use href="/icons.svg#bluesky-icon" /></svg>
-            </a>
-            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="X (Twitter)">
-              <svg width="18" height="18"><use href="/icons.svg#x-icon" /></svg>
-            </a>
-            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="Discord">
-              <svg width="18" height="18"><use href="/icons.svg#discord-icon" /></svg>
-            </a>
-            <a href="#" className="text-text-secondary hover:text-accent-primary transition-colors" aria-label="GitHub">
-              <svg width="18" height="18"><use href="/icons.svg#github-icon" /></svg>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
