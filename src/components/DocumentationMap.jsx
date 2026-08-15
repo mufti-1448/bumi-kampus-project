@@ -74,9 +74,11 @@ export default function DocumentationMap() {
 
   const setError = (key) => setImgErrors((prev) => ({ ...prev, [key]: true }));
 
+  // --- PERBAIKAN 1: Ambil ukuran gambar asli agar proporsi tetap ---
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
+      // Menentukan ukuran gambar asli
       setImageDimensions({ width: img.width, height: img.height });
     };
     img.src = mapImage;
@@ -91,6 +93,7 @@ export default function DocumentationMap() {
     setActiveHotspot(null);
   };
 
+  // --- PERBAIKAN 2: Logika clamp posisi gambar agar tidak keluar batas container saat di-drag ---
   const clampPosition = (x, y, currentZoom) => {
     if (!containerRef.current || imageDimensions.width === 0) return { x, y };
 
@@ -98,9 +101,11 @@ export default function DocumentationMap() {
     const containerWidth = containerRect.width;
     const containerHeight = containerRect.height;
 
+    // Hitung ukuran gambar setelah di-zoom
     const imageWidth = imageDimensions.width * currentZoom;
     const imageHeight = imageDimensions.height * currentZoom;
 
+    // Hitung batas maksimal bergeser agar gambar tetap ada di dalam frame
     const maxX = Math.max(0, (imageWidth - containerWidth) / 2);
     const maxY = Math.max(0, (imageHeight - containerHeight) / 2);
 
@@ -160,6 +165,7 @@ export default function DocumentationMap() {
     };
   }, [isDragging, dragStart, zoom]);
 
+  // --- PERBAIKAN 3: Setelah zoom berubah, pastikan posisi masih di dalam batas ---
   useEffect(() => {
     const clamped = clampPosition(position.x, position.y, zoom);
     if (clamped.x !== position.x || clamped.y !== position.y) {
@@ -175,7 +181,7 @@ export default function DocumentationMap() {
         <img
           src={src}
           alt="Dokumentasi kegiatan BUMI KAMPUS"
-          className="img-duotone"
+          className="w-full h-full object-cover img-duotone" // Tambah w-full h-full object-cover
           onError={() => setError(keyName)}
         />
       ) : (
@@ -191,24 +197,27 @@ export default function DocumentationMap() {
   );
 
   return (
-    <section id="dokumentasi" className="px-4 sm:px-6 lg:px-8 py-24">
+    <section
+      id="dokumentasi"
+      className="px-3 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
+    >
       <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
-        <div data-aos="fade-up" className="mb-10">
-          <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-4">
+        <div data-aos="fade-up" className="mb-6 sm:mb-10">
+          <p className="text-[10px] sm:text-xs font-semibold tracking-widest text-accent-primary uppercase mb-3 sm:mb-4">
             Dokumentasi
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             <span className="text-text-primary">Jejak Aksi </span>
             <span className="text-accent-primary">Kami</span>
           </h2>
         </div>
 
         {/* Grid */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
           {/* Kiri: foto dokumentasi */}
           <div className="space-y-3" data-aos="fade-right" data-aos-delay="200">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <Photo
                 src="/sampah.jpg"
                 keyName="docs1"
@@ -220,7 +229,7 @@ export default function DocumentationMap() {
                 className="aspect-[4/3]"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <Photo
                 src="/area-hijau.jpg"
                 keyName="docs3"
@@ -261,14 +270,14 @@ export default function DocumentationMap() {
             {/* Map Container */}
             <div
               ref={containerRef}
-              className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-bg-base cursor-grab active:cursor-grabbing"
-              style={{ height: "330px" }}
+              // PERBAIKAN 4: Tambahkan relative, w-full, dan aspect-square/landscape agar responsif
+              className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-bg-base cursor-grab active:cursor-grabbing aspect-[4/3] sm:aspect-[3/2] lg:aspect-[4/3]"
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
             >
               <div
                 ref={mapRef}
-                className="w-full h-full transition-transform duration-75 flex items-center justify-center"
+                className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
               >
                 <div
                   className="relative"
@@ -355,7 +364,7 @@ export default function DocumentationMap() {
                     e.stopPropagation();
                     handleZoomIn();
                   }}
-                  className="p-1 rounded-lg bg-bg-base/80 backdrop-blur-md border border-white/10 hover:bg-bg-base transition-colors"
+                  className="p-1.5 sm:p-1 rounded-lg bg-bg-base/80 backdrop-blur-md border border-white/10 hover:bg-bg-base transition-colors"
                   title="Perbesar"
                 >
                   <Plus size={13} className="text-text-primary" />
@@ -365,7 +374,7 @@ export default function DocumentationMap() {
                     e.stopPropagation();
                     handleZoomOut();
                   }}
-                  className="p-1 rounded-lg bg-bg-base/80 backdrop-blur-md border border-white/10 hover:bg-bg-base transition-colors"
+                  className="p-1.5 sm:p-1 rounded-lg bg-bg-base/80 backdrop-blur-md border border-white/10 hover:bg-bg-base transition-colors"
                   title="Perkecil"
                 >
                   <Minus size={13} className="text-text-primary" />
@@ -376,7 +385,7 @@ export default function DocumentationMap() {
               {activeHotspot && (
                 <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
                   <div
-                    className="pointer-events-auto w-64 sm:w-72 bg-bg-surface/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-2 animate-in fade-in zoom-in duration-300"
+                    className="pointer-events-auto w-[min(18rem,calc(100%-1rem))] sm:w-72 bg-bg-surface/95 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl p-2 animate-in fade-in zoom-in duration-300"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div className="relative bg-bg-base/80 rounded-xl overflow-hidden border border-white/5">
@@ -384,7 +393,7 @@ export default function DocumentationMap() {
                         <img
                           src={activeHotspot.image}
                           alt={activeHotspot.nama}
-                          className="img-duotone"
+                          className="w-full h-full object-cover img-duotone" // Tambah object-cover
                           onError={(e) => {
                             e.target.src =
                               "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=400&auto=format&fit=crop";
@@ -422,7 +431,7 @@ export default function DocumentationMap() {
                       activeHotspot?.id === spot.id ? null : spot,
                     )
                   }
-                  className={`text-[8px] px-2 py-0.5 rounded-full border transition-colors ${
+                  className={`text-[7px] sm:text-[8px] px-1.5 sm:px-2 py-0.5 rounded-full border transition-colors ${
                     activeHotspot?.id === spot.id
                       ? "bg-accent-primary text-bg-base border-accent-glow font-bold"
                       : "text-text-secondary bg-white/5 border-white/10 hover:bg-white/10"
@@ -434,7 +443,7 @@ export default function DocumentationMap() {
             </div>
 
             {/* Caption */}
-            <p className="text-[8px] text-text-secondary/60 mt-1 italic flex-shrink-0">
+            <p className="text-[7px] sm:text-[8px] text-text-secondary/60 mt-1 italic flex-shrink-0">
               *Peta ilustratif kampus Universitas Nusantara.
             </p>
           </div>
