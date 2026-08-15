@@ -27,7 +27,7 @@ export default function Navbar() {
       const target = document.querySelector(href);
 
       if (target) {
-        const offset = 72;
+        const offset = -20;
         const top =
           target.getBoundingClientRect().top + window.scrollY - offset;
 
@@ -118,7 +118,7 @@ export default function Navbar() {
                 <a
                   href={item.href}
                   className="block text-text-secondary hover:text-text-primary transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(event) => handleNavClick(event, item.href)}
                 >
                   {item.label}
                 </a>

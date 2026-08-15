@@ -5,12 +5,26 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: -10px;
+  }
+
   body {
     @apply bg-bg-base text-text-primary font-inter antialiased;
   }
 
+  section[id] {
+    scroll-margin-top: -10px;
+  }
+
   /* Global Focus States untuk Aksesibilitas (Poin 2.7) */
-  a, button, input, textarea, select, [tabindex]:not([tabindex="-1"]) {
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [tabindex]:not([tabindex="-1"]) {
     @apply outline-none focus-visible:ring-2 focus-visible:ring-accent-glow/60 focus-visible:rounded-sm transition-shadow;
   }
 }
