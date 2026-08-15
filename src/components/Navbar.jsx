@@ -4,8 +4,7 @@
 // Menu 6 item: Tentang, Program, Dampak, Dokumentasi, Komunitas, Kontak.
 // Navbar transparan saat di atas Hero, berubah solid + blur setelah
 // user scroll melewati threshold (80px).
-// Menu aktif di-highlight pakai teknik "scrollspy": deteksi posisi tepi
-// atas tiap section relatif ke garis navbar, bukan sekadar visibility.
+// Menu aktif di-highlight pakai teknik "scrollspy".
 
 import { useState, useEffect } from "react";
 import { Menu, X, Leaf } from "lucide-react";
@@ -19,14 +18,15 @@ const menuItems = [
   { label: "Kontak", href: "#kontak" },
 ];
 
-// Sedikit lebih besar dari tinggi navbar (h-16 = 64px), memberi toleransi
-// supaya perpindahan highlight terasa pas, bukan telat/kepagian.
+// Offset untuk scrollspy agar highlight terasa pas
 const NAVBAR_OFFSET = 100;
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
+  // 1. Scroll listener untuk Navbar background
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -34,9 +34,36 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // set posisi awal saat pertama mount
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 2. Scrollspy: Menentukan menu mana yang aktif berdasarkan posisi scroll
+  useEffect(() => {
+    const handleScrollSpy = () => {
+      const sections = menuItems.map((item) =>
+        document.getElementById(item.href.substring(1)),
+      );
+
+      let current = "";
+      sections.forEach((section) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          // Jika jarak elemen dari atas kurang dari offset navbar, artinya sedang di posisi section itu
+          if (rect.top <= NAVBAR_OFFSET) {
+            current = section.id;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy(); // Cek posisi awal saat mount
+
+    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, []);
 
   return (
@@ -48,35 +75,47 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+        {/* LOGO: DICERAHKAN JADI PUTIH + SHADOW */}
         <a
           href="#"
-          className="flex items-center gap-2 font-bold text-text-primary"
+          className="flex items-center gap-2 font-bold text-white drop-shadow-md"
         >
-          <span className="w-8 h-8 rounded-full bg-accent-primary/20 flex items-center justify-center">
+          <span className="w-8 h-8 rounded-full bg-accent-primary/20 flex items-center justify-center shadow-sm">
             <Leaf size={16} strokeWidth={1.5} className="text-accent-primary" />
           </span>
           BUMI KAMPUS
         </a>
 
-        <ul className="hidden lg:flex items-center gap-8 text-sm">
-          {menuItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="text-text-secondary transition-colors hover:text-text-primary"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+        {/* MENU UTAMA: DICERAHKAN JADI PUTIH + SHADOW */}
+        <ul className="hidden lg:flex items-center gap-8 text-sm font-medium">
+          {menuItems.map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className={`transition-colors duration-300 drop-shadow-md ${
+                    isActive
+                      ? "text-accent-primary font-bold"
+                      : "text-white hover:text-accent-primary"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
+        {/* TOMBOL CTA: TETAP PAKAI btn-primary */}
         <a href="#kontak" className="hidden lg:inline-flex btn-primary text-sm">
           Gabung Sekarang
         </a>
 
+        {/* TOMBOL HAMBURGER (MOBILE): DICERAHKAN */}
         <button
-          className="lg:hidden text-text-primary"
+          className="lg:hidden text-white drop-shadow-md"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Tutup menu" : "Buka menu"}
           aria-expanded={isOpen}
@@ -89,20 +128,28 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* MENU MOBILE SAAT DI BUKA */}
       {isOpen && (
         <div className="lg:hidden bg-bg-base border-t border-white/5 px-4 py-6">
           <ul className="flex flex-col gap-4">
-            {menuItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="block text-text-secondary transition-colors hover:text-text-primary"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {menuItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className={`block transition-colors duration-300 ${
+                      isActive
+                        ? "text-accent-primary font-bold"
+                        : "text-text-secondary hover:text-text-primary"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <a
             href="#kontak"

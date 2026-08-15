@@ -20,7 +20,7 @@ function App() {
     AOS.init({
       duration: 800, // Durasi animasi 800ms
       once: true, // Animasi hanya diputar sekali saat scroll
-      offset: 100, // Offset 100px dari bawah layar
+      offset: 0, // Trigger saat elemen benar-benar masuk viewport
       easing: "ease-out-cubic", // Efek easing yang halus
     });
   }, []);
