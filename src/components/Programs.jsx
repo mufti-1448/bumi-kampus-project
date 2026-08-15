@@ -12,10 +12,10 @@ const filters = ["Semua", "Daur Ulang", "Komunitas", "Area Hijau"];
 // Penempatan grid manual agar layout bento (card 1 tinggi, card 2-3 sejajar,
 // card 4 di bawah card 2) tetap terjaga walau hasil filter berubah jumlahnya
 const gridPosition = {
-  1: "lg:col-start-1 lg:row-start-1 lg:row-span-2",
-  2: "lg:col-start-2 lg:row-start-1",
-  3: "lg:col-start-3 lg:row-start-1",
-  4: "lg:col-start-2 lg:row-start-2",
+  1: "md:col-start-1 md:row-start-1 md:row-span-2 lg:col-start-1 lg:row-start-1 lg:row-span-2",
+  2: "md:col-start-2 md:row-start-1 lg:col-start-2 lg:row-start-1",
+  3: "md:col-start-3 md:row-start-1 lg:col-start-3 lg:row-start-1",
+  4: "md:col-start-2 md:row-start-2 lg:col-start-2 lg:row-start-2",
 };
 
 export default function Programs() {
@@ -28,9 +28,15 @@ export default function Programs() {
       : programsData.filter((p) => p.kategori === activeFilter);
 
   return (
-    <section id="program" className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-10" data-aos="fade-up">
+    <section
+      id="program"
+      className="py-24 px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center"
+    >
+      <div className="max-w-7xl mx-auto w-full">
+        <div
+          className="flex flex-wrap items-start justify-between gap-4 mb-10"
+          data-aos="fade-up"
+        >
           <div>
             <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-3">
               Program
@@ -58,14 +64,15 @@ export default function Programs() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-4 auto-rows-[280px]">
+        <div className="grid md:grid-cols-3 gap-4 auto-rows-[220px] md:auto-rows-[220px] lg:auto-rows-[230px]">
           {filtered.map((program, index) => (
             <article
               key={program.id}
-              className={`relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 group min-h-[280px] ${
+              className={`relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 group min-h-[220px] ${
                 gridPosition[index + 1] || ""
               }`}
-              data-aos="zoom-in" data-aos-delay={index * 100 + 200}
+              data-aos="zoom-in"
+              data-aos-delay={index * 100 + 200}
             >
               {!imgErrors[program.id] ? (
                 <img
@@ -78,7 +85,11 @@ export default function Programs() {
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center bg-accent-primary/10">
-                  <Package size={40} strokeWidth={1.2} className="text-accent-primary/40" />
+                  <Package
+                    size={40}
+                    strokeWidth={1.2}
+                    className="text-accent-primary/40"
+                  />
                 </div>
               )}
 
@@ -96,9 +107,12 @@ export default function Programs() {
                 <p className="text-sm text-text-secondary/90 leading-relaxed mb-3 max-w-xs">
                   {program.deskripsi}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary">
+                <a
+                  href="#kontak"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-accent-primary transition-colors duration-200 hover:text-accent-primary/80"
+                >
                   Pelajari lebih <ArrowRight size={14} strokeWidth={2} />
-                </span>
+                </a>
               </div>
             </article>
           ))}

@@ -21,6 +21,26 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const handleNavClick = (event, href) => {
+    if (href.startsWith("#")) {
+      event.preventDefault();
+      const target = document.querySelector(href);
+
+      if (target) {
+        const offset = 72;
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+          top,
+          behavior: "smooth",
+        });
+      }
+    }
+
+    setIsOpen(false);
+  };
+
   // 1. Scroll listener untuk Navbar background
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +81,7 @@ export default function Navbar() {
               <a
                 href={item.href}
                 className="text-white hover:text-accent-primary transition-colors duration-300 drop-shadow-md"
-                onClick={() => setIsOpen(false)}
+                onClick={(event) => handleNavClick(event, item.href)}
               >
                 {item.label}
               </a>
@@ -108,7 +128,7 @@ export default function Navbar() {
           <a
             href="#kontak"
             className="btn-primary text-sm mt-4 w-full justify-center"
-            onClick={() => setIsOpen(false)}
+            onClick={(event) => handleNavClick(event, "#kontak")}
           >
             Gabung Sekarang
           </a>
