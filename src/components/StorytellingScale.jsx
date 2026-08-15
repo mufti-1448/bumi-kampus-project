@@ -24,14 +24,15 @@ export default function StorytellingScale() {
 
         <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
           {stages.map((stage, i) => {
+            // ✅ FIX: Semua ukuran pakai angka valid di Tailwind
             const sizeClass =
               stage.number === "1"
-                ? "w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 text-sm sm:text-base md:text-lg"
+                ? "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-sm sm:text-base md:text-lg"
                 : stage.number === "10"
-                  ? "w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 text-base sm:text-lg md:text-xl"
+                  ? "w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 text-base sm:text-lg md:text-xl"
                   : stage.number === "100"
-                    ? "w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 text-base sm:text-xl md:text-2xl"
-                    : "w-18 h-18 sm:w-28 sm:h-28 md:w-32 md:h-32 text-base sm:text-xl md:text-2xl";
+                    ? "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-base sm:text-xl md:text-2xl"
+                    : "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-base sm:text-xl md:text-2xl";
 
             return (
               <div
