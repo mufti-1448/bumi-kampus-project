@@ -4,7 +4,7 @@
 // CTA join movement + informasi kontak organisasi
 
 import { useState } from "react";
-import { CheckCircle2, Mail, MapPin} from "lucide-react";
+import { CheckCircle2, Mail, MapPin } from "lucide-react";
 
 const contactInfo = [
   {
@@ -53,7 +53,17 @@ export default function ContactCTA() {
       id="kontak"
       className="relative py-28 px-4 sm:px-6 lg:px-8 text-center overflow-hidden"
     >
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-bg-surface to-bg-base" />
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/bg-kontak.jpg"
+          alt="Pemandangan hutan"
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
+
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-bg-base/90 via-transparent to-bg-base/90" />
+      </div>
 
       <div className="max-w-3xl mx-auto relative z-10">
         {/* Header */}
@@ -136,11 +146,7 @@ export default function ContactCTA() {
         )}
 
         {/* Informasi Kontak */}
-        <div
-          className="mt-10"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
+        <div className="mt-10" data-aos="fade-up" data-aos-delay="500">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-6">
             Informasi Kontak
           </p>
@@ -163,7 +169,9 @@ export default function ContactCTA() {
                         className="text-accent-primary"
                       />
                     ) : (
-                      <span className="text-sm font-bold text-accent-primary">@</span>
+                      <span className="text-sm font-bold text-accent-primary">
+                        @
+                      </span>
                     )}
                   </div>
 
