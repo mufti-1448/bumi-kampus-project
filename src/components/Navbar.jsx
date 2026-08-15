@@ -4,7 +4,6 @@
 // Menu 6 item: Tentang, Program, Dampak, Dokumentasi, Komunitas, Kontak.
 // Navbar transparan saat di atas Hero, berubah solid + blur setelah
 // user scroll melewati threshold (80px).
-// Menu aktif di-highlight pakai teknik "scrollspy".
 
 import { useState, useEffect } from "react";
 import { Menu, X, Leaf } from "lucide-react";
@@ -18,13 +17,9 @@ const menuItems = [
   { label: "Kontak", href: "#kontak" },
 ];
 
-// Offset untuk scrollspy agar highlight terasa pas
-const NAVBAR_OFFSET = 100;
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
 
   // 1. Scroll listener untuk Navbar background
   useEffect(() => {
@@ -37,33 +32,6 @@ export default function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // 2. Scrollspy: Menentukan menu mana yang aktif berdasarkan posisi scroll
-  useEffect(() => {
-    const handleScrollSpy = () => {
-      const sections = menuItems.map((item) =>
-        document.getElementById(item.href.substring(1)),
-      );
-
-      let current = "";
-      sections.forEach((section) => {
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          // Jika jarak elemen dari atas kurang dari offset navbar, artinya sedang di posisi section itu
-          if (rect.top <= NAVBAR_OFFSET) {
-            current = section.id;
-          }
-        }
-      });
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScrollSpy, { passive: true });
-    handleScrollSpy(); // Cek posisi awal saat mount
-
-    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, []);
 
   return (
@@ -88,24 +56,17 @@ export default function Navbar() {
 
         {/* MENU UTAMA: DICERAHKAN JADI PUTIH + SHADOW */}
         <ul className="hidden lg:flex items-center gap-8 text-sm font-medium">
-          {menuItems.map((item) => {
-            const isActive = activeSection === item.href.substring(1);
-            return (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={`transition-colors duration-300 drop-shadow-md ${
-                    isActive
-                      ? "text-accent-primary font-bold"
-                      : "text-white hover:text-accent-primary"
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            );
-          })}
+          {menuItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="text-white hover:text-accent-primary transition-colors duration-300 drop-shadow-md"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* TOMBOL CTA: TETAP PAKAI btn-primary */}
@@ -132,24 +93,17 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-bg-base border-t border-white/5 px-4 py-6">
           <ul className="flex flex-col gap-4">
-            {menuItems.map((item) => {
-              const isActive = activeSection === item.href.substring(1);
-              return (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className={`block transition-colors duration-300 ${
-                      isActive
-                        ? "text-accent-primary font-bold"
-                        : "text-text-secondary hover:text-text-primary"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              );
-            })}
+            {menuItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="block text-text-secondary hover:text-text-primary transition-colors duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
           <a
             href="#kontak"
