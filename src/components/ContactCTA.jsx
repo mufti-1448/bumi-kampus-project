@@ -43,9 +43,6 @@ export default function ContactCTA() {
 
     setError("");
     setSubmitted(true);
-
-    // Catatan: tidak ada backend/API.
-    // Ini hanya placeholder UI state sesuai scope kompetisi.
   };
 
   return (
@@ -145,13 +142,15 @@ export default function ContactCTA() {
           </form>
         )}
 
-        {/* Informasi Kontak */}
+        {/* ========================================== */}
+        {/* 🎯 INFORMASI KONTAK - HANYA ICON */}
+        {/* ========================================== */}
         <div className="mt-10" data-aos="fade-up" data-aos-delay="500">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-6">
             Informasi Kontak
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-4 text-left">
+          <div className="flex justify-center items-center gap-6 sm:gap-8">
             {contactInfo.map((contact) => {
               const Icon = contact.icon;
 
@@ -159,29 +158,51 @@ export default function ContactCTA() {
                 <a
                   key={contact.label}
                   href={contact.href}
-                  className="rounded-2xl bg-white/[0.03] border border-white/10 p-5 hover:bg-white/[0.06] transition-colors"
+                  className="group relative"
+                  aria-label={contact.label}
                 >
-                  <div className="w-9 h-9 rounded-full bg-accent-primary/15 flex items-center justify-center mb-4">
+                  {/* Icon Container - hanya icon, tanpa label & value */}
+                  <div
+                    className={`
+                      w-14 h-14 sm:w-16 sm:h-16 
+                      rounded-2xl 
+                      bg-white/[0.03] 
+                      border border-white/10 
+                      flex items-center justify-center
+                      hover:bg-white/[0.06] 
+                      hover:border-accent-glow/30
+                      hover:-translate-y-1
+                      hover:shadow-lg
+                      transition-all duration-300
+                      group-hover:shadow-accent-glow/10
+                    `}
+                  >
                     {Icon ? (
                       <Icon
-                        size={17}
+                        size={24}
                         strokeWidth={1.5}
-                        className="text-accent-primary"
+                        className="text-text-secondary group-hover:text-accent-glow transition-colors duration-300"
                       />
                     ) : (
-                      <span className="text-sm font-bold text-accent-primary">
+                      <span className="text-xl font-bold text-text-secondary group-hover:text-accent-glow transition-colors duration-300">
                         @
                       </span>
                     )}
                   </div>
 
-                  <p className="text-xs font-semibold tracking-widest text-text-secondary uppercase mb-2">
+                  {/* Tooltip label (muncul saat hover) */}
+                  <span
+                    className={`
+                      absolute -bottom-8 left-1/2 -translate-x-1/2 
+                      text-[10px] font-medium tracking-wider 
+                      text-text-secondary/60 
+                      opacity-0 group-hover:opacity-100 
+                      transition-opacity duration-300
+                      whitespace-nowrap
+                    `}
+                  >
                     {contact.label}
-                  </p>
-
-                  <p className="text-sm font-medium text-text-primary break-words">
-                    {contact.value}
-                  </p>
+                  </span>
                 </a>
               );
             })}
