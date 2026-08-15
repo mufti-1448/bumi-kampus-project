@@ -23,13 +23,13 @@ export default function AboutProblem() {
           <p className="mt-6 text-text-secondary leading-relaxed">
             Banyak dari kita sadar akan krisis lingkungan, tapi merasa
             terlalu kecil untuk membuat perbedaan nyata. Satu botol
-            dihemat, satu sampah dipilah — terasa sia-sia tanpa aksi
+            dihemat, satu sampah dipilah terasa sia-sia tanpa aksi
             bersama.
           </p>
           <p className="mt-4 text-text-secondary leading-relaxed">
             Bumi Kampus hadir untuk mengubah cara pikir itu. Ketika setiap
             individu bergerak dalam satu arah, dampaknya tidak lagi terasa
-            kecil — melainkan mengubah kampus secara nyata.
+            kecil melainkan mengubah kampus secara nyata.
           </p>
         </div>
 
