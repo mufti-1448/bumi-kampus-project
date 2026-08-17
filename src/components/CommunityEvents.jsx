@@ -1,8 +1,3 @@
-// ============================================
-// KOMPONEN: CommunityEvents
-// ============================================
-// Testimoni (1 card besar dengan foto) + grid event 4 kolom dengan filter
-
 import { useState } from "react";
 import { Users, ArrowRight, Image as ImageIcon } from "lucide-react";
 import eventsData from "../data/eventsData";
@@ -36,15 +31,12 @@ export default function CommunityEvents() {
           </h2>
         </div>
 
-        {/* Testimoni besar dengan foto */}
         <div
           className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] glass-panel overflow-hidden mb-12 lg:max-h-[350px]"
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          {/* KIRI: TEKS */}
           <div className="p-6 sm:p-8 md:p-10 relative bg-bg-base">
-            {/* Tanda Kutip Besar di Background */}
             <div
               className="absolute top-2 left-6 md:left-10 text-[6rem] sm:text-[9rem] leading-none font-black select-none pointer-events-none text-accent-primary/5"
               aria-hidden="true"
@@ -52,7 +44,6 @@ export default function CommunityEvents() {
               &ldquo;
             </div>
 
-            {/* Konten Teks */}
             <div className="relative z-10 pt-6 md:pt-8">
               <p className="text-base sm:text-lg md:text-2xl lg:text-[1.45rem] font-medium text-text-primary leading-snug mb-6 md:mb-8">
                 "Awalnya aku pikir gerakan kayak gini cuma formalitas kampus.
@@ -61,7 +52,6 @@ export default function CommunityEvents() {
                 sesuatu yang berarti."
               </p>
 
-              {/* Profil */}
               <div className="flex items-center gap-4">
                 <div className="w-11 h-11 rounded-full bg-accent-primary/25 flex items-center justify-center text-accent-glow font-bold text-lg flex-shrink-0">
                   R
@@ -78,11 +68,9 @@ export default function CommunityEvents() {
             </div>
           </div>
 
-          {/* KANAN: FOTO + GRADASI */}
           <div className="relative bg-bg-surface overflow-hidden">
             {!imgError ? (
               <>
-                {/* Foto */}
                 <img
                   src="/images/person.jpg"
                   alt="Mahasiswa berkumpul dalam kegiatan komunitas"
@@ -91,7 +79,6 @@ export default function CommunityEvents() {
                   onError={() => setImgError(true)}
                 />
 
-                {/* EFEK GRADASI INLINE */}
                 <div
                   className="absolute inset-0 pointer-events-none"
                   style={{
@@ -112,7 +99,6 @@ export default function CommunityEvents() {
           </div>
         </div>
 
-        {/* Event mendatang */}
         <div
           className="flex flex-wrap items-center justify-between gap-4 mb-6"
           data-aos="fade-up"

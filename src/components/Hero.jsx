@@ -6,7 +6,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* 1. BACKGROUND IMAGE */}
       {!bgError && (
         <img
           src="/images/hero.jpg"
@@ -22,10 +21,8 @@ export default function Hero() {
         />
       )}
 
-      {/* 2. OVERLAY GRADASI */}
       <div className="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/70 to-transparent z-10" />
 
-      {/* 3. KONTEN UTAMA */}
       <div className="max-w-7xl mx-auto w-full relative z-20 mt-0 lg:mt-0">
         <div className="max-w-[66rem] w-full">
           <h1

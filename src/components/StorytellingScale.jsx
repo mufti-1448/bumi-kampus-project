@@ -1,9 +1,3 @@
-// ============================================
-// KOMPONEN: StorytellingScale
-// ============================================
-// "Dari Satu, Jadi Ribuan" — 4 lingkaran seragam terhubung garis,
-// lingkaran ke-3 (Satu Angkatan) di-highlight dengan glow ring
-
 const stages = [
   { number: "1", label: "Kamu", highlight: false },
   { number: "10", label: "Teman Sekamar", highlight: false },
@@ -24,7 +18,6 @@ export default function StorytellingScale() {
 
         <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
           {stages.map((stage, i) => {
-            // ✅ FIX: Semua ukuran pakai angka valid di Tailwind
             const sizeClass =
               stage.number === "1"
                 ? "w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-sm sm:text-base md:text-lg"

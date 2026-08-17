@@ -1,9 +1,3 @@
-// ============================================
-// KOMPONEN: ImpactMetrics
-// ============================================
-// Full-bleed background foto hutan, angka serif besar tanpa card,
-// count-up animation saat masuk viewport
-
 import { useState } from "react";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import useCountUp from "../hooks/useCountUp";

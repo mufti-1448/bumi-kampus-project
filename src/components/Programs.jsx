@@ -1,16 +1,9 @@
-// ============================================
-// KOMPONEN: Programs
-// ============================================
-// Program explorer — grid bento asimetris, foto full-bleed dengan overlay teks
-
 import { useState } from "react";
 import { ArrowRight, Package } from "lucide-react";
 import programsData from "../data/programsData";
 
 const filters = ["Semua", "Daur Ulang", "Komunitas", "Area Hijau"];
 
-// Penempatan grid manual agar layout bento (card 1 tinggi, card 2-3 sejajar,
-// card 4 di bawah card 2) tetap terjaga walau hasil filter berubah jumlahnya
 const gridPosition = {
   1: "md:col-start-1 md:row-start-1 md:row-span-2 lg:col-start-1 lg:row-start-1 lg:row-span-2",
   2: "md:col-start-2 md:row-start-1 lg:col-start-2 lg:row-start-1",

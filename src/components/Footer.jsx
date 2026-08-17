@@ -1,19 +1,10 @@
-// ============================================
-// KOMPONEN: Footer
-// ============================================
-
 import { Leaf } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/[0.06] py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
-        {/* ========================================== */}
-        {/* TABLET & DESKTOP: 2 KOLOM (Brand kiri + Menu kanan RATA KANAN) */}
-        {/* HP: STACK RATA KIRI */}
-        {/* ========================================== */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 sm:gap-8 mb-6">
-          {/* Brand - KIRI (tetap kiri di semua device) */}
           <div className="flex-shrink-0">
             <div className="flex items-center gap-2.5 mb-1">
               <div className="w-7 h-7 rounded-full bg-[#7A9B5C] flex items-center justify-center">
@@ -28,11 +19,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Kanan: Menu + Legal */}
-          {/* HP: rata kiri (items-start) */}
-          {/* Tablet & Desktop: rata kanan (items-end) */}
           <div className="flex flex-col items-start sm:items-end gap-3 w-full sm:w-auto">
-            {/* Main Navigation */}
             <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 justify-start sm:justify-end w-full">
               <a
                 href="#tentang"
@@ -66,7 +53,6 @@ export default function Footer() {
               </a>
             </nav>
 
-            {/* Legal Links */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 justify-start sm:justify-end w-full">
               <a
                 href="#"
@@ -84,9 +70,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ========================================== */}
-        {/* Divider & Copyright */}
-        {/* ========================================== */}
         <div className="border-t border-white/[0.06] pt-6">
           <p className="text-[#9BA894] text-xs text-left">
             © 2026 Bumi Kampus. Gerakan mahasiswa untuk kampus berkelanjutan.

@@ -1,4 +1,3 @@
-// Data program BUMI KAMPUS — bersifat fictional/demo untuk kebutuhan kompetisi
 const programsData = [
   {
     id: 1,

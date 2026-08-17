@@ -1,10 +1,3 @@
-// ============================================
-// KOMPONEN: Navbar
-// ============================================
-// Menu 6 item: Tentang, Program, Dampak, Dokumentasi, Komunitas, Kontak.
-// Navbar transparan saat di atas Hero, berubah solid + blur setelah
-// user scroll melewati threshold (80px).
-
 import { useState, useEffect } from "react";
 import { Menu, X, Leaf } from "lucide-react";
 
@@ -41,7 +34,6 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  // 1. Scroll listener untuk Navbar background
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -63,7 +55,6 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-        {/* LOGO: DICERAHKAN JADI PUTIH + SHADOW */}
         <a
           href="#"
           className="flex items-center gap-2 font-bold text-white drop-shadow-md"
@@ -74,7 +65,6 @@ export default function Navbar() {
           BUMI KAMPUS
         </a>
 
-        {/* MENU UTAMA: DICERAHKAN JADI PUTIH + SHADOW */}
         <ul className="hidden lg:flex items-center gap-8 text-sm font-medium">
           {menuItems.map((item) => (
             <li key={item.href}>
@@ -89,12 +79,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* TOMBOL CTA: TETAP PAKAI btn-primary */}
         <a href="#kontak" className="hidden lg:inline-flex btn-primary text-sm">
           Gabung Sekarang
         </a>
 
-        {/* TOMBOL HAMBURGER (MOBILE): DICERAHKAN */}
         <button
           className="lg:hidden text-white drop-shadow-md"
           onClick={() => setIsOpen(!isOpen)}
@@ -109,7 +97,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* MENU MOBILE SAAT DI BUKA */}
       {isOpen && (
         <div className="lg:hidden bg-bg-base border-t border-white/5 px-4 py-6">
           <ul className="flex flex-col gap-4">

@@ -1,14 +1,8 @@
-// ============================================
-// KOMPONEN: DocumentationMap
-// ============================================
-// Custom map dengan gambar AI + koordinat persentase
-
 import { useState, useRef, useEffect } from "react";
 import { Camera, MapPin, X, Plus, Minus, Move } from "lucide-react";
 
 const mapImage = "/images/campus-map.jpg";
 
-// 📍 DATA HOTSPOT — Koordinat sudah benar!
 const hotspotsData = [
   {
     id: 1,
@@ -72,11 +66,9 @@ export default function DocumentationMap() {
 
   const setError = (key) => setImgErrors((prev) => ({ ...prev, [key]: true }));
 
-  // --- PERBAIKAN 1: Ambil ukuran gambar asli agar proporsi tetap ---
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
-      // Menentukan ukuran gambar asli
       setImageDimensions({ width: img.width, height: img.height });
     };
     img.src = mapImage;
@@ -91,7 +83,6 @@ export default function DocumentationMap() {
     setActiveHotspot(null);
   };
 
-  // --- PERBAIKAN 2: Logika clamp posisi gambar agar tidak keluar batas container saat di-drag ---
   const clampPosition = (x, y, currentZoom) => {
     if (!containerRef.current || imageDimensions.width === 0) return { x, y };
 
@@ -99,11 +90,8 @@ export default function DocumentationMap() {
     const containerWidth = containerRect.width;
     const containerHeight = containerRect.height;
 
-    // Hitung ukuran gambar setelah di-zoom
     const imageWidth = imageDimensions.width * currentZoom;
     const imageHeight = imageDimensions.height * currentZoom;
-
-    // Hitung batas maksimal bergeser agar gambar tetap ada di dalam frame
     const maxX = Math.max(0, (imageWidth - containerWidth) / 2);
     const maxY = Math.max(0, (imageHeight - containerHeight) / 2);
 
@@ -163,7 +151,6 @@ export default function DocumentationMap() {
     };
   }, [isDragging, dragStart, zoom]);
 
-  // --- PERBAIKAN 3: Setelah zoom berubah, pastikan posisi masih di dalam batas ---
   useEffect(() => {
     const clamped = clampPosition(position.x, position.y, zoom);
     if (clamped.x !== position.x || clamped.y !== position.y) {
@@ -179,7 +166,7 @@ export default function DocumentationMap() {
         <img
           src={src}
           alt="Dokumentasi kegiatan BUMI KAMPUS"
-          className="w-full h-full object-cover img-duotone" // Tambah w-full h-full object-cover
+          className="w-full h-full object-cover img-duotone"
           onError={() => setError(keyName)}
         />
       ) : (
@@ -211,9 +198,7 @@ export default function DocumentationMap() {
           </h2>
         </div>
 
-        {/* Grid */}
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
-          {/* Kiri: foto dokumentasi */}
           <div className="space-y-3" data-aos="fade-right" data-aos-delay="200">
             <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <Photo
@@ -241,7 +226,6 @@ export default function DocumentationMap() {
             </div>
           </div>
 
-          {/* Kanan: Custom Map */}
           <div
             className="glass-panel p-4 relative flex flex-col"
             data-aos="fade-left"
@@ -265,17 +249,13 @@ export default function DocumentationMap() {
               </button>
             </div>
 
-            {/* Map Container */}
             <div
               ref={containerRef}
-              // PERBAIKAN 4: Tambahkan relative, w-full, dan aspect-square/landscape agar responsif
               className="relative w-full rounded-xl overflow-hidden border border-white/10 bg-bg-base cursor-grab active:cursor-grabbing aspect-[4/3] sm:aspect-[3/2] lg:aspect-[4/3]"
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
             >
-              <div
-                className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
-              >
+              <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
                 <div
                   className="relative"
                   style={{
@@ -353,7 +333,6 @@ export default function DocumentationMap() {
                 </div>
               </div>
 
-              {/* Zoom Controls */}
               <div className="absolute bottom-2 right-2 flex flex-col gap-0.5 z-20">
                 <button
                   onClick={(e) => {
@@ -377,7 +356,6 @@ export default function DocumentationMap() {
                 </button>
               </div>
 
-              {/* 🗨️ POP-UP CHAT BOX */}
               {activeHotspot && (
                 <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
                   <div
@@ -389,7 +367,7 @@ export default function DocumentationMap() {
                         <img
                           src={activeHotspot.image}
                           alt={activeHotspot.nama}
-                          className="w-full h-full object-cover img-duotone" // Tambah object-cover
+                          className="w-full h-full object-cover img-duotone"
                           onError={(e) => {
                             e.target.src =
                               "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=400&auto=format&fit=crop";

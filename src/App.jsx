@@ -17,10 +17,10 @@ import Footer from "./components/Footer";
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800, // Durasi animasi 800ms
-      once: true, // Animasi hanya diputar sekali saat scroll
-      offset: 0, // Trigger saat elemen benar-benar masuk viewport
-      easing: "ease-out-cubic", // Efek easing yang halus
+      duration: 800,
+      once: true,
+      offset: 0,
+      easing: "ease-out-cubic",
     });
   }, []);
 

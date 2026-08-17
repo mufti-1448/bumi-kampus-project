@@ -1,9 +1,3 @@
-// ============================================
-// KOMPONEN: ImpactCalculator
-// ============================================
-// Kalkulator dampak pribadi — list toggle vertikal + panel hasil dengan
-// progress bar dan proyeksi dampak kolektif
-
 import { useState, useEffect, useRef } from "react";
 import { Droplet, Bus, Recycle, Zap, Sprout, Check, Leaf } from "lucide-react";
 import calculatorData from "../data/calculatorData";
@@ -19,7 +13,6 @@ const icons = {
 export default function ImpactCalculator() {
   const MAX_SKOR = calculatorData.reduce((sum, item) => sum + item.skor, 0);
 
-  // State untuk menyimpan ID aktivitas yang dipilih
   const [selected, setSelected] = useState(
     calculatorData.filter((i) => i.defaultActive).map((i) => i.id),
   );
@@ -30,7 +23,6 @@ export default function ImpactCalculator() {
     );
   };
 
-  // Menghitung nilai target berdasarkan item yang dipilih
   const activeItems = calculatorData.filter((item) =>
     selected.includes(item.id),
   );
@@ -38,28 +30,22 @@ export default function ImpactCalculator() {
   const targetSkor = activeItems.reduce((sum, item) => sum + item.skor, 0);
   const progressPct = Math.min((targetSkor / MAX_SKOR) * 100, 100);
 
-  // --- LOGIKA ANIMASI ANGKA SMOOTH ---
-  // displayKg dan displaySkor adalah angka yang akan ditampilkan di layar (bergerak smooth)
   const [displayKg, setDisplayKg] = useState(0);
   const [displaySkor, setDisplaySkor] = useState(0);
 
-  // Gunakan ref untuk menyimpan angka saat ini agar bisa menjadi titik awal animasi berikutnya
   const animRef = useRef({ kg: 0, skor: 0 });
   const kgRafRef = useRef(null);
   const skorRafRef = useRef(null);
 
   const animateValue = (start, end, setter, key, rafRef) => {
-    // Batalkan animasi sebelumnya jika sedang berjalan
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
 
-    const duration = 600; // Durasi 600ms
+    const duration = 600;
     const startTime = performance.now();
 
     const update = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-
-      // Ease-out agar pelan di akhir
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const currentVal = start + (end - start) * easeOut;
 
@@ -74,9 +60,7 @@ export default function ImpactCalculator() {
     rafRef.current = requestAnimationFrame(update);
   };
 
-  // Jalankan animasi setiap kali targetKg atau targetSkor berubah
   useEffect(() => {
-    // Pastikan animasi berjalan dari nilai ref terakhir, bukan dari 0
     animateValue(animRef.current.kg, targetKg, setDisplayKg, "kg", kgRafRef);
   }, [targetKg]);
 
@@ -90,14 +74,12 @@ export default function ImpactCalculator() {
     );
   }, [targetSkor]);
 
-  // Cleanup animation frame saat komponen unmount
   useEffect(() => {
     return () => {
       if (kgRafRef.current) cancelAnimationFrame(kgRafRef.current);
       if (skorRafRef.current) cancelAnimationFrame(skorRafRef.current);
     };
   }, []);
-  // -------------------------------------------
 
   const hasImpact = targetKg > 0 || targetSkor > 0;
   const kolektifKg = Math.round(targetKg * 1000);
@@ -122,7 +104,6 @@ export default function ImpactCalculator() {
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-          {/* Kiri: list aktivitas */}
           <div
             className="space-y-2.5 sm:space-y-3 min-w-0"
             data-aos="fade-right"
@@ -173,7 +154,6 @@ export default function ImpactCalculator() {
             })}
           </div>
 
-          {/* Kanan: panel hasil */}
           <div
             className="glass-panel p-2.5 sm:p-3 lg:p-8 flex flex-col min-w-0"
             data-aos="fade-left"
@@ -223,7 +203,6 @@ export default function ImpactCalculator() {
               </p>
             </div>
 
-            {/* Bagian Kolektif */}
             {targetSkor > 0 && (
               <div className="mt-4 sm:mt-6 rounded-2xl bg-accent-primary/10 border border-accent-primary/20 p-2.5 sm:p-4 flex gap-2 sm:gap-3">
                 <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-accent-primary/20 flex items-center justify-center flex-shrink-0">

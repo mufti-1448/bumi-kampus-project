@@ -1,4 +1,3 @@
-// Data pilihan aktivitas untuk Impact Calculator — angka bersifat ilustratif
 const calculatorData = [
   {
     id: "botol",

@@ -1,8 +1,3 @@
-// ============================================
-// KOMPONEN: ContactCTA
-// ============================================
-// CTA join movement + informasi kontak organisasi
-
 import { useState } from "react";
 import { CheckCircle2, Mail, MapPin, AtSign } from "lucide-react";
 
@@ -69,7 +64,6 @@ export default function ContactCTA() {
       </div>
 
       <div className="max-w-3xl mx-auto relative z-10">
-        {/* Header */}
         <p
           className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-6"
           data-aos="fade-down"
@@ -95,7 +89,6 @@ export default function ContactCTA() {
           mahasiswa yang mengubah kampus.
         </p>
 
-        {/* Join the Movement */}
         {submitted ? (
           <div
             className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/10 px-6 py-4 text-accent-primary"
@@ -148,9 +141,6 @@ export default function ContactCTA() {
           </form>
         )}
 
-        {/* ========================================== */}
-        {/* 🎯 INFORMASI KONTAK - HANYA ICON */}
-        {/* ========================================== */}
         <div className="mt-10" data-aos="fade-up" data-aos-delay="500">
           <p className="text-xs font-semibold tracking-widest text-accent-primary uppercase mb-6">
             Informasi Kontak
