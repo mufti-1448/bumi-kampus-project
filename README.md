@@ -138,3 +138,7 @@ buat Pull Request ke main
 ## Status
 
 Proyek masih dalam tahap pengembangan dan akan terus disempurnakan.
+
+## Link Deployment
+https://bumi-kampus-project.vercel.app
+
